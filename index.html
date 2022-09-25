@@ -17,12 +17,21 @@
             <section class="profile">
                 <img src="images/image.jpg" alt="Foto del Usuario" class="profile__avatar">
                 <div class="profile__info">
-                    <h2 class="profile__name">Jacques Cousteau</h2>
+                    <h2 class="profile__name">Jacques Cousteau <button type="button">+</button></h2>
                     <p class="profile__profession">Explorador</p>
                 </div>
                 <div class="button">
-                    <input type="submit" class="register">
+                    <button type="button-add">+</button>
                 </div>
+                <div class="popup">
+                    <button type="button">Cerrar</button>
+                    <h3>Edit profile</h3>
+                    <form class="popup__form" name="register">
+                      <input type="text" name="name" placeholder="Jacques Cousteau">
+                      <input type="text" name="profession" placeholder="Explorador">
+                      <button type="submit">Guardar</button>
+                    </form>
+                  </div> 
             </section>
             <section class="cards">
                 <div class="cards__item">
