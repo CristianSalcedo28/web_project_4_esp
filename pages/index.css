@@ -72,11 +72,42 @@
 
 .popup {
   display: none;
+  width: 430px;
+  height: 330px;
+  background: #FFFFFF;
 }
+
+.popup__form_name {
+  width: 358px;
+  height: 14px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+.popup__form_profession {
+  width: 358px;
+  height: 14px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+.popup__form_submit {
+  width: 358px;
+  height: 50.15px;
+  background: #000000;
+  color: #FFFFFF;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+}
+
 .cards {
     width: 880px;
     height: 743px;
-    margin: auto;
+    margin: 50px auto 68px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr 1fr;
@@ -86,6 +117,7 @@
 .cards__item {
   width: 282px;
   height: 361px;
+  background-color: #FFFFFF;
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
   border-radius: 10px;
 }
@@ -96,12 +128,15 @@
 }
 
 .cards__name {
-  height: 79px;
-  background-color: #FFFFFF;
+  width: 246px;
+  height: 30px;
   color: #000000;
   font-weight: 900;
   font-size: 24px;
   line-height: 29px;
+  margin: auto;
+  display: flex;
+  align-items: center;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -109,4 +144,7 @@
 
 .footer {
   color: #545454;
+  width: 880px;
+  padding-bottom: 60px;
+  margin: 0 auto;
 }
