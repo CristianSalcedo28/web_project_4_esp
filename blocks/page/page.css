@@ -1,0 +1,11 @@
+* { 
+    padding: 0; 
+    margin: 0; 
+  } 
+  .page { 
+    background-color: #000000; 
+    max-width: 1280px; 
+    margin: auto; 
+    font-family: Inter; 
+    box-sizing: border-box;
+  }

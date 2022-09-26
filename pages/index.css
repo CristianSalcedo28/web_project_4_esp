@@ -1,12 +1,13 @@
- * { 
+* { 
   padding: 0; 
   margin: 0; 
 } 
 .page { 
-  background-color: #2A2C2F; 
+  background-color: #000000; 
   max-width: 1280px; 
   margin: auto; 
   font-family: Inter; 
+  box-sizing: border-box;
 }
 
 .header {
@@ -14,7 +15,8 @@
   margin: auto;
   width: 880px;
   height: 74px;
-  left: 200px;
+  border: 0;
+  border-bottom: 1px solid #545454;
 }
 
 .profile {
@@ -46,19 +48,23 @@
   line-height: 1.14;
 }
 
-.button {
+.button-edit {
   width: 24px;
   height: 24px;
   border: 1px solid #FFFFFF;
+  background-color: #000000;
+  color: #FFFFFF;
 }
 
 .button-add {
-  width: 1500px;
+  width: 150px;
   height: 50px;
   border: 2px solid #FFFFFF;
   border-radius: 2px;
   grid-column: 5/6;
   grid-row: 1/2;
+  background-color: #000000;
+  color: #FFFFFF;
 }
 
 .profile__profession {
@@ -70,30 +76,86 @@
   grid-row: 2/3;
 }
 
-.popup {
-  display: none;
+.popup{
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.3);
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  padding: 20px;
+  z-index: 100;
+ 
+}
+
+.popup__container {
   width: 430px;
   height: 330px;
-  background: #FFFFFF;
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  padding: 36px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.popup__form_name {
+.close-button {
+  background-color: #000000;
+  height: 70px;
+  width: 70px;
+  color: #FFFFFF;
+  justify-content: center;
+  align-items: center;
+  font-size: 60px;
+  font-weight: normal;
+  position: absolute;
+  right: -60px;
+  top: -60px;
+  cursor: pointer;
+  transform: rotate(-45deg);
+
+}
+
+.popup__title {
+  width: 330px;
+  height: 23px;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29px;
+}
+
+.popup__item {
+  border: 0;
+  box-sizing: border-box;
+  border-bottom: 1px solid #000000;
+  
+}
+
+.popup__item_name {
   width: 358px;
-  height: 14px;
+  height: 27.34px;
+  color: #000000;
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
+
 }
 
-.popup__form_profession {
+.popup__item_profession {
   width: 358px;
-  height: 14px;
+  height: 27.34px;
+  color: #000000;
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
+
 }
 
-.popup__form_submit {
+.button-submit {
   width: 358px;
   height: 50.15px;
   background: #000000;
@@ -101,7 +163,9 @@
   font-weight: 400;
   font-size: 18px;
   line-height: 22px;
+  border-radius: 2px;
   text-align: center;
+  margin: auto;
 }
 
 .cards {
