@@ -1,0 +1,19 @@
+.button-edit {
+  width: 24px;
+  height: 24px;
+  border-bottom: 1px solid #FFFFFF;
+  border-right: 1px solid #FFFFFF;
+  background-image: url(../../images/Edit_Button.svg);
+  color: #FFFFFF;
+  background-color: #000000;
+  cursor: pointer;
+  margin-top: 12px;
+  margin-left: 18px;
+  }
+
+  .button-edit:hover { 
+    background-image: url(../../images/Edit_Button-gray.svg); 
+    border-bottom: 2px solid gray;
+    border-right: 2px solid gray;
+  } 
+  

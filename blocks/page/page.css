@@ -1,11 +1,18 @@
 * { 
-    padding: 0; 
-    margin: 0; 
-  } 
-  .page { 
+  padding: 0; 
+  margin: 0; 
+} 
+
+.page { 
     background-color: #000000; 
     max-width: 1280px; 
     margin: auto; 
     font-family: Inter; 
     box-sizing: border-box;
+  }
+
+  @media screen and (max-width: 879px) { 
+    .page { 
+      max-width: 320px;
+    }
   }

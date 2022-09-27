@@ -1,16 +1,18 @@
 .close-button {
-    background-color: #000000;
-    height: 70px;
-    width: 70px;
-    color: #FFFFFF;
-    justify-content: center;
-    align-items: center;
-    font-size: 60px;
-    font-weight: normal;
-    position: absolute;
-    right: -60px;
-    top: -60px;
-    cursor: pointer;
-    transform: rotate(-45deg);
-  
-  }
+  height: 40px;
+  width: 40px;
+  font-weight: normal;
+  position: absolute;
+  right: -40px;
+  top: -40px;
+  cursor: pointer;
+  background-image: url(../../images/Close_Icon.svg);
+  background-size: cover; 
+  background-position: top; 
+  background-repeat: no-repeat; 
+  background-color: #000000;
+}
+
+.close-button:hover { 
+  background-image: url(../../images/Close_Icon-gray.svg); 
+} 

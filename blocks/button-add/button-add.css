@@ -1,0 +1,31 @@
+.button-add {
+  width: 150px;
+  height: 50px;
+  border-radius: 2px;
+  border-bottom: 2px solid #FFFFFF;
+  border-right: 2px solid #FFFFFF;
+  background-color: #000000;
+  color: #FFFFFF;
+  background-image: url(../../images/Add_Button.svg);
+  background-repeat: no-repeat;
+  cursor: pointer;
+  grid-column: 5/6;
+  grid-row: 1/2;
+  margin-top: 35px;
+}
+
+.button-add:hover { 
+  background-image: url(../../images/Add_Button-gray.svg); 
+  border-bottom: 2px solid gray;
+  border-right: 2px solid gray;
+} 
+
+  @media screen and (max-width: 879px) { 
+    .button-add { 
+    background-image: url(../../images/Add_Button-mobile.svg);
+    width: 282px;
+    height: 50px;
+    grid-column: 1/2;
+    grid-row: 4/5;
+    }
+  }
