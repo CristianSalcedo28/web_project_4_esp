@@ -16,4 +16,13 @@
     border-bottom: 2px solid gray;
     border-right: 2px solid gray;
   } 
+
+  @media screen and (max-width: 879px) { 
+    .button-edit { 
+      background-image: url(../../images/Edit_Button-mobile.svg); 
+      width: 18px;
+      height: 18px;
+      margin-left: 10px;
+    }
+  }
   
