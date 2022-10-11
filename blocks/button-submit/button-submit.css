@@ -15,6 +15,11 @@
   margin-bottom: 36px;
 }
 
+.button-submit:hover { 
+  opacity: 0.6;
+  cursor: pointer;
+} 
+
 @media screen and (max-width: 879px) { 
   .button-submit { 
     width: 238px;

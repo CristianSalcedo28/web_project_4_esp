@@ -6,7 +6,7 @@
     right: -40px;
     top: -40px;
     cursor: pointer;
-    background-image: url(../../images/Close_Icon.png);
+    background-image: url(../../images/Close_Icon.svg);
     background-size: cover;
     background-position: top;
     background-repeat: no-repeat;
@@ -14,7 +14,7 @@
 }
 
 .close-button:hover { 
-  background-image: url(../../images/Close_Icon-gray.svg); 
+  opacity: 0.6;
 } 
 
 @media screen and (max-width: 879px) { 

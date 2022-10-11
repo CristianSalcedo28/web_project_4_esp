@@ -2,8 +2,7 @@
   width: 150px;
   height: 50px;
   border-radius: 2px;
-  border-bottom: 2px solid #FFFFFF;
-  border-right: 2px solid #FFFFFF;
+  border-style: hidden;
   background-color: #000000;
   color: #FFFFFF;
   background-image: url(../../images/Add_Button.svg);
@@ -15,9 +14,7 @@
 }
 
 .button-add:hover { 
-  background-image: url(../../images/Add_Button-gray.svg); 
-  border-bottom: 2px solid gray;
-  border-right: 2px solid gray;
+  opacity: 0.6;
 } 
 
   @media screen and (max-width: 879px) { 

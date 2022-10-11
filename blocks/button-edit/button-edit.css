@@ -1,28 +1,30 @@
 .button-edit {
   width: 24px;
   height: 24px;
-  border-bottom: 1px solid #FFFFFF;
-  border-right: 1px solid #FFFFFF;
+  border-style: hidden;
   background-image: url(../../images/Edit_Button.svg);
+  background-repeat: no-repeat;
+  background-position: bottom;
   color: #FFFFFF;
   background-color: #000000;
   cursor: pointer;
-  margin-top: 12px;
-  margin-left: 18px;
+  padding-top: 60px;
   }
 
-  .button-edit:hover { 
-    background-image: url(../../images/Edit_Button-gray.svg); 
-    border-bottom: 2px solid gray;
-    border-right: 2px solid gray;
+  .button-edit:hover {
+    opacity: 0.6;
   } 
 
   @media screen and (max-width: 879px) { 
     .button-edit { 
-      background-image: url(../../images/Edit_Button-mobile.svg); 
+      background-image: url(../../images/Edit_Button-mobile.svg);
       width: 18px;
       height: 18px;
-      margin-left: 10px;
+      grid-column: 1/2;
+      grid-row: 3/4;
+      justify-self: right;
+      padding-top: 50px;
+      padding-left: 55px;
     }
   }
   
