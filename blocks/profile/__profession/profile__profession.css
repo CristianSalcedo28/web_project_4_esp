@@ -5,6 +5,7 @@
     font-weight: 400;
     font-size: 18px;
     line-height: 1.14;
+    margin-top: 13px;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
@@ -13,7 +14,7 @@
   @media screen and (max-width: 879px) {
     .profile__profession {
     width: 282px;
-    margin: auto;
+    margin: 14px auto 0;
     text-align: center;
     }
   }
