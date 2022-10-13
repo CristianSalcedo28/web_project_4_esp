@@ -1,16 +1,16 @@
 # Proyecto 4: Alrededor de los Estados Unidos
 
-### Descripción general
+**Descripción general**
 
-* Figma
-* Imágenes
+Es un proyeco para Practicum, en el mismo se muestra un usuario con su profesion y una seleccion de fotos de distintos lugares de Estados Unidos, tambien se incluye un boton del estilo *me gusta* de las actuales redes sociales. Tambien se agrego un boton para editar perfil el cual abre un formulario.
 
-**Figma**
+**Caracteristicas**
 
-* [Enlace al proyecto en Figma](https://www.figma.com/file/LDMgqWesKpQkIwhOfEBuTS/WEB%2C-Sprint-5%3A-Around-The-U.S.-%7C-desktop-%2B-mobile?node-id=0%3A1)
+Se utilizo JavaScript para lograr abrir un formulario popup y asi poder editar el nombre y la profesion del usuario que se muestra en la pagina principal.
 
-**Imágenes**
+**Posibles Mejoras**
 
-A la hora de trabajar, debes optar por exportar las imágenes directamente desde Figma; te recomendamos hacerlo para practicar más. No olvides optimizarlas [aquí](https://tinypng.com/), para que tu proyecto cargue más rápido. 
+Se puede agregar funcion al boton add, el cual nos podria dar la posibilidad de cambiar agregar mas imagenes en la pagina e incluso utilizar JavaScript para recopilar informacion con respecto a los click en el boton *Me Gusta* de las imagenes
 
-¡Esperamos que te diviertas con JavaScript!
+**GitHub Pages**
+
