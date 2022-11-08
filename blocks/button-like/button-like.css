@@ -1,19 +1,19 @@
 .button-like {
-    background-image: url(../../images/like.svg);
-    background-repeat: no-repeat;
-    height: 19px;
-    width: 21px;
-    background-color: white;
-    border: 0px;
-    cursor: pointer;
-    margin: auto;
-    padding-right: 30px;
+  background-image: url(../../images/like.svg);
+  background-repeat: no-repeat;
+  height: 19px;
+  width: 21px;
+  background-color: white;
+  border: 0px;
+  cursor: pointer;
+  margin: auto;
+  padding-right: 30px;
 }
 
-.button-like:hover { 
-    background-image: url(../../images/like-gray.svg); 
-} 
+.button-like:hover {
+  background-image: url(../../images/like-gray.svg);
+}
 
-.button-like:focus { 
-    background-image: url(../../images/like-black.svg); 
-} 
+.button-like:focus {
+  background-image: url(../../images/like-black.svg);
+}

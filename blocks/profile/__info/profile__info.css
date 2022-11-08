@@ -1,5 +1,4 @@
 .profile__info {
-  /*height: 74px;*/
   width: 415px;
   grid-column: 2/4;
   grid-row: 1/2;
@@ -8,10 +7,10 @@
   margin-top: 22px;
 }
 
-  @media screen and (max-width: 879px) {
-    .profile__info {
-    width: 282px;
-    grid-column: 1/2;
-    grid-row: 3/4;
-    }
+@media screen and (max-width: 879px) {
+  .profile__info {
+  width: 282px;
+  grid-column: 1/2;
+  grid-row: 3/4;
   }
+}

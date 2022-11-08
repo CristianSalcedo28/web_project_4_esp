@@ -13,16 +13,16 @@
   margin-top: 35px;
 }
 
-.button-add:hover { 
+.button-add:hover {
   opacity: 0.6;
-} 
+}
 
-  @media screen and (max-width: 879px) { 
-    .button-add { 
-    background-image: url(../../images/Add_Button-mobile.svg);
-    width: 282px;
-    height: 50px;
-    grid-column: 1/2;
-    grid-row: 4/5;
-    }
+@media screen and (max-width: 879px) {
+  .button-add {
+  background-image: url(../../images/Add_Button-mobile.svg);
+  width: 282px;
+  height: 50px;
+  grid-column: 1/2;
+  grid-row: 4/5;
   }
+}
