@@ -22,48 +22,6 @@
                 <button type="button" class="button-add"></button>
             </section>
             <section class="cards">
-                <div class="cards__item">
-                    <img src="images/ValleDeYosemite.png" alt="Foto de Yosemite" class="cards__image">
-                    <div class="cards__text">
-                        <h4 class="cards__name">Valle de Yosemite</h4>
-                        <button type="button" class="button-like"></button>
-                    </div>
-                </div>
-                <div class="cards__item">
-                    <img src="images/LagoLouise.png" alt="Foto de Lago Louise" class="cards__image">
-                    <div class="cards__text">
-                        <h4 class="cards__name">Lago Louise</h4>
-                        <button type="button" class="button-like"></button>
-                    </div>
-                </div>
-                <div class="cards__item">
-                    <img src="images/MontanasCalvasas.png" alt="Foto de Montanas Calvasas" class="cards__image">
-                    <div class="cards__text">
-                        <h4 class="cards__name">Montañas Calvasa</h4>
-                        <button type="button" class="button-like"></button>
-                    </div>
-                </div>
-                <div class="cards__item">
-                    <img src="images/Latemar.png" alt="Foto de Latemar" class="cards__image">
-                    <div class="cards__text">
-                        <h4 class="cards__name">Latemar</h4>
-                        <button type="button" class="button-like"></button>
-                    </div>
-                </div>
-                <div class="cards__item">
-                    <img src="images/Vanoise.png" alt="Foto de Vanoise" class="cards__image">
-                    <div class="cards__text">
-                        <h4 class="cards__name">Vanoise Nationa...</h4>
-                        <button type="button" class="button-like"></button>
-                    </div>
-                </div>
-                <div class="cards__item">
-                    <img src="images/LagoDiBraies.png" alt="Foto de Lago de Braies" class="cards__image">
-                    <div class="cards__text">
-                        <h4 class="cards__name">Lago di Braies</h4>
-                        <button type="button" class="button-like"></button>
-                    </div>
-                </div>
             </section>
         </main>
          <footer class="footer">© 2021 Alrededor de los EEUU</footer>
@@ -81,6 +39,38 @@
         </div>
       </section>
 
+      <section class="popup popup_new-card">
+        <div class="popup__container">
+          <form class="popup__form" name="agregar">
+            <button type="button" class="close-button"></button>
+            <h3 class="popup__title">New Place</h3>
+            <label for="titulo" class="form__label">Titulo</label>
+            <input type="text" name="titulo" class="popup__item popup__item_name" id="title" required>
+            <label for="titulo" class="form__label">Image URL</label>
+            <input type="text" name="image" class="popup__item popup__item_profession" id="image" required>
+            <button type="submit" class="button-submit">Guardar</button>
+          </form>
+        </div>
+      </section>
+
+      <div class="popup popup_image">
+        <div class="popup__content">
+          <img src="" alt="" class="popup__image">
+        </div>
+      </div>
+
+      <template class="template__card">
+        <div class="cards__item">
+          <img src="" alt="" class="cards__image">
+          <button type="button" class="button-trash"></button>
+          <div class="cards__text">
+              <h4 class="cards__name"></h4>
+              <button type="button" class="button-like"></button>
+          </div>
+      </div>
+      </template>
+
    <script src="pages/script.js"></script>
+   <script src="pages/script2.js"></script>
 </body>
 </html>
