@@ -3,6 +3,7 @@ const cardsContainer = document.querySelector('.cards');
 const popupNewCard = document.querySelector('.popup_new-card');
 const popupImage = document.querySelector('.popup_image');
 const templateCard = document.querySelector('.template__card').content.querySelector('.cards__item');
+const form = document.querySelector('.popup__form');
 const initialCards = [
   {
     name: 'Valle de Yosemite',
@@ -38,15 +39,33 @@ initialCards.forEach(function(elemento){
 });
 
 cardsContainer.addEventListener('click', function(event){
-  // console.log('click', event.target);
-  if(event.target.tagName === 'IMG'){
-    console.log('click en la imagen');
+   if(event.target.tagName === 'IMG'){
 
     popupImage.querySelector('.popup__image').src = event.target.src;
     popupImage.classList.add('popup__show');
   }
 });
-const handleKeyPress = function (event) {
 
-}
-document.addEventListener()
+cardsContainer.addEventListener('click', handleclick);
+
+const handleKeyPress = function (event) {
+  if(event.key === 'esc'){
+    popupImage.classList.remove('popup__show');
+  }
+};
+
+document.addEventListener('keypress', handleKeyPress);
+
+popupImage.addEventListener('click', function(event) {
+  if(event.target.classList.contains('popup')){
+    popupImage.classList.remove('popup__show');
+  }
+});
+
+newCardButton.addEventListener('click', function(event){
+  popupNewCard.classList.add('popup__show');
+})
+
+form.addEventListener('submit', function(event){
+  event.preventDefault();
+})
