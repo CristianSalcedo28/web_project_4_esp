@@ -9,5 +9,8 @@
   border: none;
   background-image: url(../../images/Trash.png);
   background-color: transparent;
+}
 
+.button-trash:hover {
+  opacity: 0.6;
 }
