@@ -4,7 +4,8 @@ const popupNewCard = document.querySelector('.popup_new-card');
 const popupImage = document.querySelector('.popup_image');
 const templateCard = document.querySelector('.template__card').content.querySelector('.cards__item');
 const form = document.querySelector('.popup__form');
-const likeButton = document.querySelector('.button-like');
+
+
 const initialCards = [
   {
     title: 'Valle de Yosemite',
@@ -49,7 +50,7 @@ initialCards.forEach(function(elemento){
     console.log(event.target.parentElement);
     document.querySelector('.popup__text').textContent = title;
   }
-  if(event.target.tagName === 'BUTTON'){
+  if(event.target.className === 'button-trash'){
     event.target.parentNode.remove();
   }
 }
@@ -57,7 +58,7 @@ initialCards.forEach(function(elemento){
 cardsContainer.addEventListener('click', handleclick);
 
 const handleKeyPress = function (event) {
-  if(event.key === 'esc'){
+  if(event.target.className === 'esc'){
     popupImage.classList.remove('popup__show');
   }
 };
@@ -71,11 +72,11 @@ popupImage.addEventListener('click', function(event) {
 });
 //abrir el popup para agregar una imagen
 newCardButton.addEventListener('click', function(event){
-  popup.classList.add('popup__show');
+  popupNewCard.classList.add('popup__show');
 });
-//cerrar el popup
+//cerrar el popup (no me funciona)
 closeButton.addEventListener('click', function(event){
-  popup.classList.remove('popup__show');
+  popupNewCard.classList.remove('popup__show');
 });
 
 
@@ -95,9 +96,9 @@ form.addEventListener('submit', function(event){
   // cerrar el popup
   popupNewCard.classList.remove('popup__show');
   // limpiar el formulario
-  event.target.reset();
+  //event.target.reset();
 });
-
+const likeButton = document.querySelectorAll('.button-like');
 likeButton.addEventListener("click", function (event) {
-  event.target.classList.toggle("button-like_active");
+  event.target.classList.add("button-like_active");
 }); 

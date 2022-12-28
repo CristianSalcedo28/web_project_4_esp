@@ -1,9 +1,10 @@
 .cards {
   width: 880px;
   margin: 50px auto 68px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 1fr 1fr;
+  display: flex;
+  flex-wrap: wrap;
+  /*grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr 1fr;*/
   gap: 20px 17px;
 
 }
@@ -12,7 +13,7 @@
   .cards {
     max-width: 282px;
     margin-bottom: 50px;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
+  /*  grid-template-columns: 1fr;
+    grid-template-rows: auto;*/
   }
 }

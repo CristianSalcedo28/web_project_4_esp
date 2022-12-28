@@ -1,6 +1,6 @@
 const openFormButton = document.querySelector('.button-edit');
 const popup = document.querySelector('.popup');
-const closeButton = popup.querySelector('.close-button');
+const closeButton = document.querySelector('.close-button');
 
 function toggleForm() {
   popup.classList.toggle('popup__opened');

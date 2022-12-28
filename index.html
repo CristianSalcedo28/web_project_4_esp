@@ -32,8 +32,8 @@
           <form class="popup__form" name="register">
             <button type="button" class="close-button"></button>
             <h3 class="popup__title">Edit profile</h3>
-            <input type="text" name="name" class="popup__item popup__item_name"  required>
-            <input type="text" name="profession" class="popup__item popup__item_profession" required>
+            <input type="text" name="name" class="popup__item popup__item_name" placeholder="Name" required>
+            <input type="text" name="profession" class="popup__item popup__item_profession" placeholder="Profession" required>
             <button type="submit" class="button-submit">Guardar</button>
           </form>
         </div>
@@ -41,21 +41,21 @@
 
       <section class="popup popup_new-card">
         <div class="popup__container">
-          <form class="popup__form" name="agregar">
+          <form class="popup__form">
             <button type="button" class="close-button"></button>
             <h3 class="popup__title">New Place</h3>
-            <label for="titulo" class="form__label">Titulo</label>
-            <input type="text" name="titulo" class="popup__item popup__item_title" id="title" required>
-            <label for="titulo" class="form__label">Image URL</label>
-            <input type="text" name="image" class="popup__item popup__item_link" id="image" required>
-            <button type="submit" class="button-submit">Guardar</button>
+            <label for="titulo" class="form__label"></label>
+            <input type="text" name="titulo" class="popup__item popup__item_title" id="title" placeholder="Title" required>
+            <label for="titulo" class="form__label"></label>
+            <input type="text" name="image" class="popup__item popup__item_link" id="image" placeholder="Url" required>
+            <button type="submit" class="button-submit">Crear</button>
           </form>
         </div>
       </section>
 
       <div class="popup popup_image">
         <div class="popup__content">
-          <button type="button" class="close-button"></button>
+          <button type="button" class="close-button-image"></button>
           <img src="" alt="" class="popup__image">
           <p class="popup__text"></p>
         </div>
