@@ -21,7 +21,7 @@ function cambiarTitulos(evt){
 
   profileName.textContent = inputName;
   profileProfession.textContent = inputProfession;
-
+  evt.target.reset();
 }
 
 const submitButton = document.querySelector('.button-submit');
