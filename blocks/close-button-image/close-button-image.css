@@ -3,8 +3,8 @@
     width: 40px;
     font-weight: normal;
     position: absolute;
-    right: 24%;
-    top: 21px;
+    right: -45px;
+    top: -41px;
     cursor: pointer;
     background-image: url(../../images/Close_Icon.svg);
     background-color: transparent;
@@ -23,8 +23,8 @@
       background-image: url(../../images/Close_Icon-mobile.svg);
       height: 26px;
       width: 26px;
-      right: 10px;
-      top: 252px;
+      right: -28px;
+      top: -24px;
       border: 0;
     }
   }
