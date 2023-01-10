@@ -6,6 +6,7 @@ const templateCard = document.querySelector('.template__card').content.querySele
 const form = document.querySelector('.popup__form_image');
 const closeButtonAddCard = form.querySelector('.close-button');
 const closeButtonNewImage = document.querySelector('.close-button-image');
+//const likeButton = popupNewCard.querySelector('.button-like');
 
 const initialCards = [
   {
@@ -39,6 +40,9 @@ initialCards.forEach(function(elemento){
   nuevaTarjeta.querySelector('.cards__image').src = elemento.link;
   nuevaTarjeta.querySelector('.cards__name').textContent = elemento.title;
   nuevaTarjeta.setAttribute('title', elemento.title);
+  nuevaTarjeta.querySelector('.button-like').addEventListener('click', function(event){
+    event.target.classList.toggle('button-like-active');
+  });
   cardsContainer.prepend(nuevaTarjeta);
 });
 // para agrandar la imagen
@@ -105,7 +109,4 @@ form.addEventListener('submit', function(event){
   event.target.reset();
 });
 
-const likeButton = document.querySelectorAll('.button-like');
-likeButton.addEventListener("click", function (event) {
-  event.target.classList.add("button-like_active");
-});
+

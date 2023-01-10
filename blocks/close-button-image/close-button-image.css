@@ -3,7 +3,7 @@
     width: 40px;
     font-weight: normal;
     position: absolute;
-    right: 220px;
+    right: 24%;
     top: 21px;
     cursor: pointer;
     background-image: url(../../images/Close_Icon.svg);
@@ -13,11 +13,11 @@
     background-repeat: no-repeat;
     border: none;
   }
-  
+
   .close-button-image:hover {
     opacity: 0.6;
   }
-  
+
   @media screen and (max-width: 879px) {
     .close-button-image {
       background-image: url(../../images/Close_Icon-mobile.svg);
