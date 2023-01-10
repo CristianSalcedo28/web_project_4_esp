@@ -34,6 +34,10 @@ const initialCards = [
     link: 'https://code.s3.yandex.net/web-code/lago.jpg'
   }
 ];
+
+const handleLike = function(event){
+  event.target.classList.toggle('button-like-active');
+}
 // para crear las tarjetas iniciales con js
 initialCards.forEach(function(elemento){
   const nuevaTarjeta = templateCard.cloneNode(true);
@@ -41,8 +45,8 @@ initialCards.forEach(function(elemento){
   nuevaTarjeta.querySelector('.cards__name').textContent = elemento.title;
   nuevaTarjeta.setAttribute('title', elemento.title);
   nuevaTarjeta.querySelector('.button-like').addEventListener('click', function(event){
-    event.target.classList.toggle('button-like-active');
-  });
+    handleLike(event)
+});
   cardsContainer.prepend(nuevaTarjeta);
 });
 // para agrandar la imagen
@@ -101,6 +105,10 @@ form.addEventListener('submit', function(event){
   // completar informacion
   nuevaTarjeta.querySelector('.cards__image').src = event.target.elements.image.value;
   nuevaTarjeta.querySelector('.cards__name').textContent = event.target.elements.titulo.value;
+  nuevaTarjeta.querySelector('.button-like').addEventListener('click', function(event){
+    handleLike(event)
+});
+  nuevaTarjeta.setAttribute('title', event.target.elements.titulo.value);
   // agregar al contenedor
   cardsContainer.prepend(nuevaTarjeta);
   // cerrar el popup
