@@ -5,12 +5,14 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center; 
+  justify-content: center;
+  transition: .3s ease;
+  opacity: 0;
 }
 
-@media screen and (max-width: 879px) { 
-  .popup__container { 
-  max-width: 282px; 
+@media screen and (max-width: 879px) {
+  .popup__container {
+  max-width: 282px;
   height: 322px;
   padding: 0 22px;
   }
