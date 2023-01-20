@@ -1,9 +1,12 @@
 const openFormButton = document.querySelector('.button-edit');
 const popup = document.querySelector('.popup');
 const closeButton = document.querySelector('.close-button');
+const popupContainer = document.querySelector('.popup__container');
+
 
 function toggleForm() {
   popup.classList.toggle('popup__opened');
+  popupContainer.classList.add('popup__container_active');
 }
 
 openFormButton.addEventListener('click', toggleForm);

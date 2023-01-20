@@ -6,7 +6,7 @@ const templateCard = document.querySelector('.template__card').content.querySele
 const form = document.querySelector('.popup__form_image');
 const closeButtonAddCard = form.querySelector('.close-button');
 const closeButtonNewImage = document.querySelector('.close-button-image');
-const popupContainer = document.querySelector('.popup__container');
+const popupContainerImage = document.querySelector('.popup__container-image');
 
 const initialCards = [
   {
@@ -82,7 +82,7 @@ popupImage.addEventListener('click', function(event) {
 //abrir el popup para agregar una imagen
 newCardButton.addEventListener('click', function(event){
   popupNewCard.classList.add('popup__show');
-  popupContainer.classList.add('popup__container_active');
+  popupContainerImage.classList.add('popup__container-image_active');
 });
 //cerrar el popup
 closeButtonAddCard.addEventListener('click', function(event){
