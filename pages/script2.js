@@ -7,6 +7,7 @@ const form = document.querySelector('.popup__form_image');
 const closeButtonAddCard = form.querySelector('.close-button');
 const closeButtonNewImage = document.querySelector('.close-button-image');
 const popupContainerImage = document.querySelector('.popup__container-image');
+const popupContent = document.querySelector('.popup__content');
 
 const initialCards = [
   {
@@ -55,6 +56,7 @@ initialCards.forEach(function(elemento){
 
     popupImage.querySelector('.popup__image').src = event.target.src;
     popupImage.classList.add('popup__show');
+    popupContent.classList.add('popup__content_active');
     const title = event.target.parentElement.getAttribute('title');
     console.log(event.target.parentElement);
     document.querySelector('.popup__text').textContent = title;
