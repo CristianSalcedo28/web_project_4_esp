@@ -66,10 +66,9 @@ initialCards.forEach(function(elemento){
 cardsContainer.addEventListener('click', handleclick);
 
 const handleKeyPress = function (event) {
-  if(event.target.className === 'esc'){
     popupImage.classList.remove('popup__show');
   }
-};
+
 //para quitar la foto con un click afuera
 document.addEventListener('keypress', handleKeyPress);
 
