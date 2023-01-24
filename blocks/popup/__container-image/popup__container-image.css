@@ -3,11 +3,6 @@
   border-radius: 10px;
   padding: 0 36px;
   position: relative;
-/*  display: flex;
-  flex-direction: column;
-  justify-content: center;*/
-  opacity: 0;
-  transition: opacity .3s linear 0s;
 }
 
 @media screen and (max-width: 879px) {
