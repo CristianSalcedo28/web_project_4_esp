@@ -13,15 +13,14 @@ const formElement = document.querySelector('.popup__container')
 
 function cambiarTitulos(evt){
   evt.preventDefault();
-  const inputName = document.querySelector('.popup__item_name').value;
-  const inputProfession = document.querySelector('.popup__item_profession').value;
+  const inputName = document.querySelector('#name');
+  const inputProfession = document.querySelector('#profession');
 
   const profileName = document.querySelector('.profile__name');
   const profileProfession = document.querySelector('.profile__profession');
 
-  profileName.textContent = inputName;
-  profileProfession.textContent = inputProfession;
-  evt.target.reset();
+  profileName.textContent = inputName.value;
+  profileProfession.textContent = inputProfession.value;
 }
 
 const submitButton = document.querySelector('.button-submit');

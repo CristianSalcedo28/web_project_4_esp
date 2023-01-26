@@ -55,7 +55,6 @@ initialCards.forEach(function(elemento){
     popupImage.querySelector('.popup__image').src = event.target.src;
     popupImage.classList.add('popup__show');
     const title = event.target.parentElement.getAttribute('title');
-    console.log(event.target.parentElement);
     document.querySelector('.popup__text').textContent = title;
   }
   if(event.target.className === 'button-trash'){
