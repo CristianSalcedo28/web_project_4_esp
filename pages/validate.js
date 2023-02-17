@@ -1,6 +1,6 @@
 const formSelector = document.querySelector(".popup__form");
 const formInput = formSelector.querySelector(".popup__item");
-const formError = formSelector.querySelector(".name-error");
+const formError = formSelector.querySelector(`.${formInput.id}-error`);
 console.log(formInput.id);
 
 const POPUP_ITEM_NAME_ERROR = ".popup__item_name_error"
@@ -27,10 +27,10 @@ const isValid = () => {
   }
 };
 
-formElement.addEventListener("submit", function (evt) {
+//formElement.addEventListener("submit", function (evt) {
   // Cancela la acción del navegador por defecto, de modo que al hacer clic en el botón "Enviar" no se actualice la página
-  evt.preventDefault();
-});
+///  evt.preventDefault();
+//});
 
 // Llama a la función isValid() para cada entrada de caracteres
 formInput.addEventListener("change", isValid);
