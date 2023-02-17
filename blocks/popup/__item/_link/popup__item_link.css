@@ -8,4 +8,8 @@
     line-height: 17px;
     margin-top: 30px;
   }
-  
+
+  .popup__item_link:invalid {
+    border-bottom: 1px solid red;
+  }
+

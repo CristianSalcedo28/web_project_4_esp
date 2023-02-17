@@ -9,8 +9,13 @@
   margin-top: 54px;
 }
 
-@media screen and (max-width: 879px) { 
-  .popup__item_name { 
-    margin-top: 76px; 
+@media screen and (max-width: 879px) {
+  .popup__item_name {
+    margin-top: 76px;
   }
+}
+
+/*
+.popup__item_name:invalid {
+  border-bottom: 1px solid red;
 }
