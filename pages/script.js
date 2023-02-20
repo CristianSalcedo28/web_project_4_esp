@@ -1,6 +1,7 @@
 const openFormButton = document.querySelector('.button-edit');
 const popup = document.querySelector('.popup');
 const closeButton = document.querySelector('.close-button');
+const popupPerfil = document.querySelector('.popup_perfil');
 
 function toggleForm() {
   popup.classList.toggle('popup__opened');
@@ -27,4 +28,6 @@ const submitButton = document.querySelector('.button-submit');
 submitButton.addEventListener("click", toggleForm);
 
 document.querySelector(".popup__form").addEventListener('submit', cambiarTitulos);
+
+
 

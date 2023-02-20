@@ -76,6 +76,20 @@ popupImage.addEventListener('click', function(event) {
     popupImage.classList.remove('popup__show');
   }
 });
+
+popupNewCard.addEventListener('click', function(event) {
+  if(event.target.classList.contains('popup')){
+    popupNewCard.classList.remove('popup__show');
+  }
+});
+
+popupPerfil.addEventListener('click', function(event) {
+  if(event.target.classList.contains('popup')){
+    popupPerfil.classList.remove('popup__opened');
+  }
+});
+
+
 //abrir el popup para agregar una imagen
 newCardButton.addEventListener('click', function(event){
   popupNewCard.classList.add('popup__show');

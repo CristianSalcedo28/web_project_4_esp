@@ -15,16 +15,16 @@
   margin-bottom: 36px;
 }
 
-.button-submit:hover { 
+.button-submit:hover {
   opacity: 0.6;
   cursor: pointer;
-} 
+}
 
-@media screen and (max-width: 879px) { 
-  .button-submit { 
+@media screen and (max-width: 879px) {
+  .button-submit {
     width: 238px;
     height: 46px;
     font-size: 14px;
-    line-height: 17px;  
+    line-height: 17px;
   }
 }

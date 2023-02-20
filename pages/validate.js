@@ -3,7 +3,7 @@
 //const formError = formSelector.querySelector(`.${formInput.id}-error`);
 //console.log(formInput.id);
 
-const POPUP_ITEM_NAME_ERROR = ".popup__item_name_error"
+//const POPUP_ITEM_NAME_ERROR = ".popup__item_name_error"
 const showInputError = (formElement, inputElement, errorMessage) => {
 //  console.log("llego aqui")
 const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
@@ -25,9 +25,13 @@ const isValid = (formElement, inputElement) => {
   if (!inputElement.validity.valid) {
     // Si NO lo es (!), muestra el elemento erróneo
     showInputError(formElement, inputElement, inputElement.validationMessage);
+    submitButton.setAttribute("disabled");
+  //  submitButton.classList.add("input__btn_disabled");
   } else {
     // Si es válido, oculta el elemento erróneo
     hideInputError(formElement, inputElement);
+    submitButton.removeAttribute("disabled");
+  //  submitButton.classList.remove("input__btn_disabled");
   }
 };
 
@@ -52,12 +56,14 @@ const enableValidation = () => {
 };
     enableValidation();
 
+
+
 //formElement.addEventListener("submit", function (evt) {
   // Cancela la acción del navegador por defecto, de modo que al hacer clic en el botón "Enviar" no se actualice la página
 ///  evt.preventDefault();
 //});
 
 // Llama a la función isValid() para cada entrada de caracteres
-//formInput.addEventListener("change", function () {
-//  isValid(formSelector, formInput);
-//});
+formInput.addEventListener("change", function () {
+  isValid(formSelector, formInput);
+});
