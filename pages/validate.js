@@ -1,31 +1,56 @@
-const formSelector = document.querySelector(".popup__form");
-const formInput = formSelector.querySelector(".popup__item");
-const formError = formSelector.querySelector(`.${formInput.id}-error`);
-console.log(formInput.id);
+//const formSelector = document.querySelector(".popup__form");
+//const formInput = formSelector.querySelector(".popup__item");
+//const formError = formSelector.querySelector(`.${formInput.id}-error`);
+//console.log(formInput.id);
 
 const POPUP_ITEM_NAME_ERROR = ".popup__item_name_error"
-const showInputError = (element, errorMessage) => {
+const showInputError = (formElement, inputElement, errorMessage) => {
 //  console.log("llego aqui")
-  element.classList.add(POPUP_ITEM_NAME_ERROR);
-  formError.textContent = errorMessage;
-  formError.classList.add("popup__item-error");
+const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+
+//  element.classList.add(POPUP_ITEM_NAME_ERROR);
+  errorElement.textContent = errorMessage;
+  errorElement.classList.add("popup__item-error");
 };
 
-const hideInputError = (element) => {
-  element.classList.remove(POPUP_ITEM_NAME_ERROR);
-  formError.classList.remove("popup__item-error");
-  formError.textContent = "";
+const hideInputError = (formElement, inputElement) => {
+ const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+
+//  element.classList.remove(POPUP_ITEM_NAME_ERROR);
+  errorElement.classList.remove("popup__item-error");
+  errorElement.textContent = "";
 };
 
-const isValid = () => {
-  if (!formInput.validity.valid) {
+const isValid = (formElement, inputElement) => {
+  if (!inputElement.validity.valid) {
     // Si NO lo es (!), muestra el elemento erróneo
-    showInputError(formInput, formInput.validationMessage);
+    showInputError(formElement, inputElement, inputElement.validationMessage);
   } else {
     // Si es válido, oculta el elemento erróneo
-    hideInputError(formInput);
+    hideInputError(formElement, inputElement);
   }
 };
+
+const setEventListeners = (formElement) => {
+  const inputList = Array.from(formElement.querySelectorAll(".popup__item"));
+  inputList.forEach((inputElement) => {
+    inputElement.addEventListener("input", function () {
+      isValid(formElement, inputElement);
+    });
+  });
+};
+
+const enableValidation = () => {
+  const formList = Array.from(document.querySelectorAll(".popup__form"));
+  formList.forEach((formElement) => {
+  formElement.addEventListener("submit", function (evt) {
+    evt.preventDefault();
+  });
+
+    setEventListeners(formElement);
+});
+};
+    enableValidation();
 
 //formElement.addEventListener("submit", function (evt) {
   // Cancela la acción del navegador por defecto, de modo que al hacer clic en el botón "Enviar" no se actualice la página
@@ -33,4 +58,6 @@ const isValid = () => {
 //});
 
 // Llama a la función isValid() para cada entrada de caracteres
-formInput.addEventListener("change", isValid);
+//formInput.addEventListener("change", function () {
+//  isValid(formSelector, formInput);
+//});
