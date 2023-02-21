@@ -26,12 +26,12 @@ const isValid = (formElement, inputElement) => {
     // Si NO lo es (!), muestra el elemento erróneo
     showInputError(formElement, inputElement, inputElement.validationMessage);
     submitButton.setAttribute("disabled");
-  //  submitButton.classList.add("input__btn_disabled");
+    submitButton.classList.add("input__btn_disabled");
   } else {
     // Si es válido, oculta el elemento erróneo
     hideInputError(formElement, inputElement);
     submitButton.removeAttribute("disabled");
-  //  submitButton.classList.remove("input__btn_disabled");
+    submitButton.classList.remove("input__btn_disabled");
   }
 };
 

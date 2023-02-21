@@ -61,15 +61,17 @@ initialCards.forEach(function(elemento){
     event.target.parentNode.remove();
   }
 }
-//para quitar la foto ampliada con Escape (no funciona)
 cardsContainer.addEventListener('click', handleclick);
+
+//para quitar la foto ampliada con Escape (no funciona)
 
 const handleKeyPress = function (event) {
     popupImage.classList.remove('popup__show');
   }
 
 //para quitar la foto con un click afuera
-document.addEventListener('keypress', handleKeyPress);
+document.addEventListener('keypress', handleKeyPress)
+
 
 popupImage.addEventListener('click', function(event) {
   if(event.target.classList.contains('popup')){
