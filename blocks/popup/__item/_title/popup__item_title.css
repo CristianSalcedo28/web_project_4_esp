@@ -14,7 +14,3 @@
       margin-top: 76px;
     }
   }
-
-  .popup__item_title:invalid {
-    border-bottom: 1px solid red;
-  }

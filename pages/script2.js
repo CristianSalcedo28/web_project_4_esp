@@ -65,6 +65,15 @@ cardsContainer.addEventListener('click', handleclick);
 
 //para quitar la foto ampliada con Escape (no funciona)
 
+
+const keyHandler = (evt) => {
+  if(evt.key === "27") {
+    console.log(funcionaaa)
+//   popupImage.classList.remove('popup__show');
+  }
+}
+popupImage.addEventListener('keypress', keyHandler)
+
 const handleKeyPress = function (event) {
     popupImage.classList.remove('popup__show');
   }

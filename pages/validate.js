@@ -21,25 +21,45 @@ const hideInputError = (formElement, inputElement) => {
   errorElement.textContent = "";
 };
 
-const isValid = (formElement, inputElement) => {
+const checkValidity = (formElement, inputElement) => {
   if (!inputElement.validity.valid) {
     // Si NO lo es (!), muestra el elemento erróneo
     showInputError(formElement, inputElement, inputElement.validationMessage);
-    submitButton.setAttribute("disabled");
-    submitButton.classList.add("input__btn_disabled");
+
   } else {
     // Si es válido, oculta el elemento erróneo
     hideInputError(formElement, inputElement);
-    submitButton.removeAttribute("disabled");
-    submitButton.classList.remove("input__btn_disabled");
+
   }
 };
 
+
+const isValid = (inputList) => {
+  return inputList.every((inputElement) => inputElement.validity.valid);
+}
+
+const toggleButton = (formElement, inputList) =>{
+  const buttonElement = formElement.querySelector(".button-submit")
+  if (!isValid(inputList)) {
+    buttonElement.setAttribute("disabled", true);
+    buttonElement.classList.add("input__btn_disabled"); }
+  else {
+    buttonElement.removeAttribute("disabled", false);
+    buttonElement.classList.remove("input__btn_disabled");
+  }
+
+}
+
 const setEventListeners = (formElement) => {
   const inputList = Array.from(formElement.querySelectorAll(".popup__item"));
+
   inputList.forEach((inputElement) => {
     inputElement.addEventListener("input", function () {
-      isValid(formElement, inputElement);
+
+      checkValidity(formElement, inputElement);
+      toggleButton(formElement, inputList);
+
+/*       isValid(formElement, inputElement); */
     });
   });
 };
@@ -50,8 +70,7 @@ const enableValidation = () => {
   formElement.addEventListener("submit", function (evt) {
     evt.preventDefault();
   });
-
-    setEventListeners(formElement);
+  setEventListeners(formElement);
 });
 };
     enableValidation();
@@ -64,6 +83,6 @@ const enableValidation = () => {
 //});
 
 // Llama a la función isValid() para cada entrada de caracteres
-formInput.addEventListener("change", function () {
-  isValid(formSelector, formInput);
-});
+//formInput.addEventListener("change", function () {
+//  isValid(formSelector, formInput);
+//});
