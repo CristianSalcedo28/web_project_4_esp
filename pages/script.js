@@ -1,7 +1,7 @@
 const openFormButton = document.querySelector('.button-edit');
 const popup = document.querySelector('.popup');
 const closeButton = document.querySelector('.close-button');
-const popupPerfil = document.querySelector('.popup_perfil');
+const popupProfile = document.querySelector('.popup_profile');
 
 function toggleForm() {
   popup.classList.toggle('popup__opened');
@@ -12,7 +12,7 @@ closeButton.addEventListener('click', toggleForm);
 
 const formElement = document.querySelector('.popup__container')
 
-function cambiarTitulos(evt){
+function changeTitle(evt){
   evt.preventDefault();
   const inputName = document.querySelector('#name');
   const inputProfession = document.querySelector('#profession');
@@ -27,7 +27,7 @@ function cambiarTitulos(evt){
 const submitButton = document.querySelector('.button-submit');
 submitButton.addEventListener("click", toggleForm);
 
-document.querySelector(".popup__form").addEventListener('submit', cambiarTitulos);
+document.querySelector(".popup__form").addEventListener('submit', changeTitle);
 
 
 

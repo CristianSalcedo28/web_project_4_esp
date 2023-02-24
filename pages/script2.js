@@ -39,19 +39,18 @@ const handleLike = function(event){
 }
 // para crear las tarjetas iniciales con js
 initialCards.forEach(function(elemento){
-  const nuevaTarjeta = templateCard.cloneNode(true);
-  nuevaTarjeta.querySelector('.cards__image').src = elemento.link;
-  nuevaTarjeta.querySelector('.cards__name').textContent = elemento.title;
-  nuevaTarjeta.setAttribute('title', elemento.title);
-  nuevaTarjeta.querySelector('.button-like').addEventListener('click', function(event){
+  const newCard = templateCard.cloneNode(true);
+  newCard.querySelector('.cards__image').src = elemento.link;
+  newCard.querySelector('.cards__name').textContent = elemento.title;
+  newCard.setAttribute('title', elemento.title);
+  newCard.querySelector('.button-like').addEventListener('click', function(event){
     handleLike(event)
 });
-  cardsContainer.prepend(nuevaTarjeta);
+  cardsContainer.prepend(newCard);
 });
 // para agrandar la imagen
   const handleclick = function(event){
    if(event.target.tagName === 'IMG'){
-
     popupImage.querySelector('.popup__image').src = event.target.src;
     popupImage.classList.add('popup__show');
     const title = event.target.parentElement.getAttribute('title');
@@ -63,12 +62,12 @@ initialCards.forEach(function(elemento){
 }
 cardsContainer.addEventListener('click', handleclick);
 
-//para quitar la foto ampliada con Escape (no funciona)
+//para quitar la foto ampliada con Escape
 const keyHandler = (evt) => {
   if(evt.key === "Escape") {
    popupImage.classList.remove('popup__show');
    popupNewCard.classList.remove('popup__show');
-   popupPerfil.classList.remove('popup__opened');
+   popupProfile.classList.remove('popup__opened');
   }
 }
 
@@ -79,7 +78,7 @@ document.addEventListener('click', function(event) {
   if(event.target.classList.contains('popup')){
     popupImage.classList.remove('popup__show');
     popupNewCard.classList.remove('popup__show');
-    popupPerfil.classList.remove('popup__opened');
+    popupProfile.classList.remove('popup__opened');
   }
 });
 
