@@ -1,6 +1,4 @@
-const openFormButton = document.querySelector('.button-edit');
-const popup = document.querySelector('.popup');
-const closeButton = document.querySelector('.close-button');
+
 const popupProfile = document.querySelector('.popup_profile');
 const newCardButton = document.querySelector('.button-add');
 const cardsContainer = document.querySelector('.cards');
@@ -11,73 +9,49 @@ const form = document.querySelector('.popup__form_image');
 const closeButtonAddCard = form.querySelector('.close-button');
 const closeButtonNewImage = document.querySelector('.close-button-image');
 
-function toggleForm() {
-  popup.classList.toggle('popup__opened');
-}
 
-openFormButton.addEventListener('click', toggleForm);
-closeButton.addEventListener('click', toggleForm);
 
-const formElement = document.querySelector('.popup__container')
-
-function changeTitle(evt){
-  evt.preventDefault();
-  const inputName = document.querySelector('#name');
-  const inputProfession = document.querySelector('#profession');
-
-  const profileName = document.querySelector('.profile__name');
-  const profileProfession = document.querySelector('.profile__profession');
-
-  profileName.textContent = inputName.value;
-  profileProfession.textContent = inputProfession.value;
-}
-
-const submitButton = document.querySelector('.button-submit');
-submitButton.addEventListener("click", toggleForm);
-
-document.querySelector(".popup__form").addEventListener('submit', changeTitle);
-
-const initialCards = [
-  {
-    title: 'Valle de Yosemite',
-    link: 'https://code.s3.yandex.net/web-code/yosemite.jpg'
-  },
-  {
-    title: 'Lago Louise',
-    link: 'https://code.s3.yandex.net/web-code/lake-louise.jpg'
-  },
-  {
-    title: 'Montañas Calvas',
-    link: 'https://code.s3.yandex.net/web-code/bald-mountains.jpg'
-  },
-  {
-    title: 'Latemar',
-    link: 'https://code.s3.yandex.net/web-code/latemar.jpg'
-  },
-  {
-    title: 'Parque Nacional de la Vanoise',
-    link: 'https://code.s3.yandex.net/web-code/vanoise.jpg'
-  },
-  {
-    title: 'Lago di Braies',
-    link: 'https://code.s3.yandex.net/web-code/lago.jpg'
-  }
-];
+// const initialCards = [
+//   {
+//     title: 'Valle de Yosemite',
+//     link: 'https://code.s3.yandex.net/web-code/yosemite.jpg'
+//   },
+//   {
+//     title: 'Lago Louise',
+//     link: 'https://code.s3.yandex.net/web-code/lake-louise.jpg'
+//   },
+//   {
+//     title: 'Montañas Calvas',
+//     link: 'https://code.s3.yandex.net/web-code/bald-mountains.jpg'
+//   },
+//   {
+//     title: 'Latemar',
+//     link: 'https://code.s3.yandex.net/web-code/latemar.jpg'
+//   },
+//   {
+//     title: 'Parque Nacional de la Vanoise',
+//     link: 'https://code.s3.yandex.net/web-code/vanoise.jpg'
+//   },
+//   {
+//     title: 'Lago di Braies',
+//     link: 'https://code.s3.yandex.net/web-code/lago.jpg'
+//   }
+// ];
 
 const handleLike = function(event){
   event.target.classList.toggle('button-like-active');
 }
 // para crear las tarjetas iniciales con js
-initialCards.forEach(function(elemento){
-  const newCard = templateCard.cloneNode(true);
-  newCard.querySelector('.cards__image').src = elemento.link;
-  newCard.querySelector('.cards__name').textContent = elemento.title;
-  newCard.setAttribute('title', elemento.title);
-  newCard.querySelector('.button-like').addEventListener('click', function(event){
-    handleLike(event)
-});
-  cardsContainer.prepend(newCard);
-});
+// initialCards.forEach(function(elemento){
+//   const newCard = templateCard.cloneNode(true);
+//   newCard.querySelector('.cards__image').src = elemento.link;
+//   newCard.querySelector('.cards__name').textContent = elemento.title;
+//   newCard.setAttribute('title', elemento.title);
+//   newCard.querySelector('.button-like').addEventListener('click', function(event){
+//     handleLike(event)
+// });
+//   cardsContainer.prepend(newCard);
+// });
 // para agrandar la imagen
   const handleclick = function(event){
    if(event.target.tagName === 'IMG'){
