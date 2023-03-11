@@ -53,18 +53,18 @@ const handleLike = function(event){
 //   cardsContainer.prepend(newCard);
 // });
 // para agrandar la imagen
-  const handleclick = function(event){
-   if(event.target.tagName === 'IMG'){
-    popupImage.querySelector('.popup__image').src = event.target.src;
-    popupImage.classList.add('popup__show');
-    const title = event.target.parentElement.getAttribute('title');
-    document.querySelector('.popup__text').textContent = title;
-  }
-  if(event.target.className === 'button-trash'){
-    event.target.parentNode.remove();
-  }
-}
-cardsContainer.addEventListener('click', handleclick);
+//   const handleclick = function(event){
+//    if(event.target.tagName === 'IMG'){
+//     popupImage.querySelector('.popup__image').src = event.target.src;
+//     popupImage.classList.add('popup__show');
+//     const title = event.target.parentElement.getAttribute('title');
+//     document.querySelector('.popup__text').textContent = title;
+//   }
+//   if(event.target.className === 'button-trash'){
+//     event.target.parentNode.remove();
+//   }
+// }
+// cardsContainer.addEventListener('click', handleclick);
 
 //para quitar la foto ampliada con Escape
 const keyHandler = (evt) => {

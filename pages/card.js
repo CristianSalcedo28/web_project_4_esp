@@ -22,6 +22,16 @@ class Card {
     this.cardElement.remove();
   }
 
+//PARA EXPANDIR LA IMAGEN
+  _handleclick = (event) => {
+      const popupImage = document.querySelector('.popup_image');
+
+      popupImage.querySelector('.popup__image').src = this._link;
+      popupImage.classList.add('popup__show');
+      const title = event.target.parentElement.getAttribute('title');
+      document.querySelector('.popup__text').textContent = this._title;
+    }
+
   _setEventListeners() {
     this.cardBtnDelete.addEventListener("click", () => {
       this._handleBtnDelete();
@@ -30,6 +40,9 @@ class Card {
     this.cardBtnLike.addEventListener("click", () => {
       this._handleBtnLike();
     });
+    cardsContainer.addEventListener('click',() => {
+      this._handleclick();
+      });
   }
 
   setCardProperties() {
