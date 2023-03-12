@@ -23,12 +23,10 @@ class Card {
   }
 
 //PARA EXPANDIR LA IMAGEN
-  _handleclick = (event) => {
-      const popupImage = document.querySelector('.popup_image');
-
+  _handleclick = () => {
+    const popupImage = document.querySelector('.popup_image');
       popupImage.querySelector('.popup__image').src = this._link;
       popupImage.classList.add('popup__show');
-      const title = event.target.parentElement.getAttribute('title');
       document.querySelector('.popup__text').textContent = this._title;
     }
 
