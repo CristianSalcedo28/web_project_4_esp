@@ -1,3 +1,16 @@
+export const openFormButton = document.querySelector('.button-edit');
+export const popup = document.querySelector('.popup');
+export const closeButton = document.querySelector('.close-button');
+export const popupProfile = document.querySelector('.popup_profile');
+export const newCardButton = document.querySelector('.button-add');
+export const cardsContainer = document.querySelector('.cards');
+export const popupNewCard = document.querySelector('.popup_new-card');
+export const popupImage = document.querySelector('.popup_image');
+export const templateCard = document.querySelector('.template__card').content.querySelector('.cards__item');
+export const form = document.querySelector('.popup__form_image');
+export const closeButtonAddCard = form.querySelector('.close-button');
+export const closeButtonNewImage = document.querySelector('.close-button-image');
+
 export const initialCards = [
   {
     title: 'Valle de Yosemite',

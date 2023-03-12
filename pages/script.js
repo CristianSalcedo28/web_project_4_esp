@@ -1,15 +1,4 @@
-
-const popupProfile = document.querySelector('.popup_profile');
-const newCardButton = document.querySelector('.button-add');
-const cardsContainer = document.querySelector('.cards');
-const popupNewCard = document.querySelector('.popup_new-card');
-const popupImage = document.querySelector('.popup_image');
-const templateCard = document.querySelector('.template__card').content.querySelector('.cards__item');
-const form = document.querySelector('.popup__form_image');
-const closeButtonAddCard = form.querySelector('.close-button');
-const closeButtonNewImage = document.querySelector('.close-button-image');
-
-
+import { popupProfile, newCardButton, cardsContainer, popupNewCard, popupImage, templateCard, form, closeButtonAddCard, closeButtonNewImage } from "./constants.js"
 
 // const initialCards = [
 //   {
@@ -66,39 +55,39 @@ const handleLike = function(event){
 // }
 // cardsContainer.addEventListener('click', handleclick);
 
-//para quitar la foto ampliada con Escape
-const keyHandler = (evt) => {
-  if(evt.key === "Escape") {
-   popupImage.classList.remove('popup__show');
-   popupNewCard.classList.remove('popup__show');
-   popupProfile.classList.remove('popup__opened');
-  }
-}
+// //para quitar la foto ampliada con Escape
+// const keyHandler = (evt) => {
+//   if(evt.key === "Escape") {
+//    popupImage.classList.remove('popup__show');
+//    popupNewCard.classList.remove('popup__show');
+//    popupProfile.classList.remove('popup__opened');
+//   }
+// }
 
-document.addEventListener('keydown', keyHandler)
+// document.addEventListener('keydown', keyHandler)
 
-//para quitar la foto con un click afuera
-document.addEventListener('click', function(event) {
-  if(event.target.classList.contains('popup')){
-    popupImage.classList.remove('popup__show');
-    popupNewCard.classList.remove('popup__show');
-    popupProfile.classList.remove('popup__opened');
-  }
-});
+// //para quitar la foto con un click afuera
+// document.addEventListener('click', function(event) {
+//   if(event.target.classList.contains('popup')){
+//     popupImage.classList.remove('popup__show');
+//     popupNewCard.classList.remove('popup__show');
+//     popupProfile.classList.remove('popup__opened');
+//   }
+// });
 
-//abrir el popup para agregar una imagen
-newCardButton.addEventListener('click', function(event){
-  popupNewCard.classList.add('popup__show');
-});
-//cerrar el popup
-closeButtonAddCard.addEventListener('click', function(event){
-  popupNewCard.classList.remove('popup__show');
-});
+// //abrir el popup para agregar una imagen
+// newCardButton.addEventListener('click', function(event){
+//   popupNewCard.classList.add('popup__show');
+// });
+// //cerrar el popup
+// closeButtonAddCard.addEventListener('click', function(event){
+//   popupNewCard.classList.remove('popup__show');
+// });
 
-// para cerrar popup imagen
-closeButtonNewImage.addEventListener('click', function(event){
-  popupImage.classList.remove('popup__show');
-});
+// // para cerrar popup imagen
+// closeButtonNewImage.addEventListener('click', function(event){
+//   popupImage.classList.remove('popup__show');
+// });
 
 
 form.addEventListener('submit', function(event){
