@@ -26,11 +26,6 @@ submitButton.addEventListener("click", toggleForm);
 
 document.querySelector(".popup__form").addEventListener('submit', changeTitle);
 
-
-const handleLike = function(event){
-  event.target.classList.toggle('button-like-active');
-}
-
 //para quitar la foto ampliada con Escape
 const keyHandler = (evt) => {
   if(evt.key === "Escape") {

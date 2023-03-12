@@ -1,6 +1,4 @@
-import { initialCards } from "./constants.js";
-const templateCard = document.querySelector(".template__card").content.querySelector(".cards__item");
-const cardsContainer = document.querySelector(".cards");
+import { initialCards, templateCard, cardsContainer } from "./constants.js";
 
 class Card {
   constructor(data) {
@@ -24,6 +22,7 @@ class Card {
 
 //PARA EXPANDIR LA IMAGEN
   _handleclick = () => {
+
     const popupImage = document.querySelector('.popup_image');
       popupImage.querySelector('.popup__image').src = this._link;
       popupImage.classList.add('popup__show');
@@ -38,7 +37,7 @@ class Card {
     this.cardBtnLike.addEventListener("click", () => {
       this._handleBtnLike();
     });
-    cardsContainer.addEventListener('click',() => {
+    this.cardElement.addEventListener('click',() => {
       this._handleclick();
       });
   }

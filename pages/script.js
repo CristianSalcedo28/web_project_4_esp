@@ -1,4 +1,4 @@
-import { popupProfile, newCardButton, cardsContainer, popupNewCard, popupImage, templateCard, form, closeButtonAddCard, closeButtonNewImage } from "./constants.js"
+import { cardsContainer, popupNewCard, templateCard, form, } from "./constants.js"
 
 // const initialCards = [
 //   {
