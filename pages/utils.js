@@ -17,8 +17,8 @@ function changeTitle(evt){
   this.profileName = document.querySelector('.profile__name');
   this.profileProfession = document.querySelector('.profile__profession');
 
-  profileName.textContent = inputName.value;
-  profileProfession.textContent = inputProfession.value;
+  this.profileName.textContent = this.inputName.value;
+  this.profileProfession.textContent = this.inputProfession.value;
 }
 
 const submitButton = document.querySelector('.button-submit');

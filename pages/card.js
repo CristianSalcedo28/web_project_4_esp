@@ -21,7 +21,7 @@ class Card {
   }
 
 //PARA EXPANDIR LA IMAGEN
-  _handleclick = () => {
+  _handleClick() {
 
     const popupImage = document.querySelector('.popup_image');
       popupImage.querySelector('.popup__image').src = this._link;
@@ -38,7 +38,7 @@ class Card {
       this._handleBtnLike();
     });
     this.cardElement.addEventListener('click',() => {
-      this._handleclick();
+      this._handleClick();
       });
   }
 

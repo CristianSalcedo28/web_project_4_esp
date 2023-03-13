@@ -1,6 +1,26 @@
+// enableValidation({
+//   formSelector: ".popup__form",
+//   inputSelector: ".popup__item",
+//   submitButtonSelector: ".button-submit",
+//   inactiveButtonClass: "pinput__btn_disabled",
+//   // inputErrorClass: "popup__input_type_error",
+//   errorClass: "popup__item-error"
+// });
+
+
+// class FormValidator {
+//   constructor (enableValidation){
+//     this.formSelector = enableValidation.formSelector,
+//     this.inputSelector = enableValidation.inputSelector,
+//     this.errorClass = enableValidation.errorClass,
+//     this.submitButtonSelector = enableValidation.submitButtonSelector,
+//     this.inactiveButtonClass = enableValidation.inactiveButtonClass,
+//     this._errorElement = enableValidation._errorElement
+//   }
+
 class FormValidator {
   constructor (errorElement){
-      this._errorElement = errorElement
+    this._errorElement = errorElement
   }
 
   _showInputError = (formElement, inputElement, errorMessage) => {

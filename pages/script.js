@@ -1,4 +1,4 @@
-import { cardsContainer, popupNewCard, templateCard, form, } from "./constants.js"
+import {  cardsContainer, popupNewCard, templateCard, form } from "./constants.js"
 
 // const initialCards = [
 //   {
@@ -41,7 +41,7 @@ const handleLike = function(event){
 // });
 //   cardsContainer.prepend(newCard);
 // });
-// para agrandar la imagen
+//para agrandar la imagen
 //   const handleclick = function(event){
 //    if(event.target.tagName === 'IMG'){
 //     popupImage.querySelector('.popup__image').src = event.target.src;
