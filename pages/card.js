@@ -1,6 +1,6 @@
 import { initialCards, templateCard, cardsContainer } from "./constants.js";
 
-class Card {
+export class Card {
   constructor(data) {
     this._title = data.title,
     this._link = data.link;
@@ -27,24 +27,25 @@ class Card {
       popupImage.querySelector('.popup__image').src = this._link;
       popupImage.classList.add('popup__show');
       document.querySelector('.popup__text').textContent = this._title;
-    }
+  }
 
   _setEventListeners() {
     this.cardBtnDelete.addEventListener("click", () => {
+      console.log("delete btn click")
       this._handleBtnDelete();
     });
 
     this.cardBtnLike.addEventListener("click", () => {
       this._handleBtnLike();
     });
-    this.cardElement.addEventListener('click',() => {
+    this.cardElement.querySelector(".cards__image").addEventListener('click',() => {
       this._handleClick();
-      });
+    });
   }
 
   setCardProperties() {
-    this.cardTitle = this.cardElement.querySelector(".cards__name").textContent = this._title;
-    this.cardLink = this.cardElement.querySelector(".cards__image").src = this._link;
+    this.cardElement.querySelector(".cards__name").textContent = this._title;
+    this.cardElement.querySelector(".cards__image").src = this._link;
     this.cardBtnLike = this.cardElement.querySelector(".button-like");
     this.cardBtnDelete = this.cardElement.querySelector(".button-trash");
   }
@@ -58,8 +59,8 @@ class Card {
   }
 }
 
-initialCards.forEach((data) => {
-  const cardCreated = new Card(data).generateCard();
-  cardCreated.setAttribute("title", data.title);
-  cardsContainer.prepend(cardCreated);
-});
+// initialCards.forEach((data) => {
+//   const cardCreated = new Card(data).generateCard();
+//   cardCreated.setAttribute("title", data.title);
+//   cardsContainer.prepend(cardCreated);
+// });

@@ -1,5 +1,5 @@
-import {  cardsContainer, popupNewCard, templateCard, form } from "./constants.js"
-
+import {  initialCards, cardsContainer, popupNewCard, templateCard, form } from "./constants.js"
+import { Card } from "./card.js"
 // const initialCards = [
 //   {
 //     title: 'Valle de Yosemite',
@@ -113,4 +113,11 @@ form.addEventListener('submit', function(event){
   event.target.reset();
 });
 
-
+function renderInitialCards() {
+initialCards.forEach((data) => {
+  const cardCreated = new Card(data).generateCard();
+  cardCreated.setAttribute("title", data.title);
+  cardsContainer.prepend(cardCreated);
+});
+}
+renderInitialCards();
