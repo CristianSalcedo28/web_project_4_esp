@@ -1,5 +1,6 @@
 import {  initialCards, cardsContainer, popupNewCard, templateCard, form } from "./constants.js"
 import { Card } from "./card.js"
+import FormValidator from "./formValidator.js"
 // const initialCards = [
 //   {
 //     title: 'Valle de Yosemite',
@@ -28,7 +29,7 @@ import { Card } from "./card.js"
 // ];
 
 const handleLike = function(event){
-  event.target.classList.toggle('button-like-active');
+    event.target.classList.toggle('button-like-active');
 }
 // para crear las tarjetas iniciales con js
 // initialCards.forEach(function(elemento){
@@ -93,23 +94,23 @@ const handleLike = function(event){
 form.addEventListener('submit', function(event){
   event.preventDefault();
   // obtener el valor del titulo
-  const titulo = document.querySelector('#title').value;
+  const title = document.querySelector('#title').value;
   // obtener el valor del url
-  const url = document.querySelector('#image').value;
+  const link = document.querySelector('#image').value;
   // crear nueva tarjeta
-  const nuevaTarjeta = templateCard.cloneNode(true);
-  // completar informacion
-  nuevaTarjeta.querySelector('.cards__image').src = event.target.elements.image.value;
-  nuevaTarjeta.querySelector('.cards__name').textContent = event.target.elements.titulo.value;
-  nuevaTarjeta.querySelector('.button-like').addEventListener('click', function(event){
+  const nuevaTarjeta = new Card({link, title}).generateCard();
+  nuevaTarjeta.setAttribute("title", title);
+  nuevaTarjeta.querySelector('.button-like')
+  .addEventListener('click', function(event){
     handleLike(event)
-});
-  nuevaTarjeta.setAttribute('title', event.target.elements.titulo.value);
+  });
+/*   nuevaTarjeta.setAttribute('title', event.target.elements.titulo.value);
   // agregar al contenedor
-  cardsContainer.prepend(nuevaTarjeta);
+  cardsContainer.prepend(nuevaTarjeta);*/
   // cerrar el popup
   popupNewCard.classList.remove('popup__show');
   // limpiar el formulario
+  cardsContainer.prepend(nuevaTarjeta);
   event.target.reset();
 });
 
@@ -121,3 +122,16 @@ initialCards.forEach((data) => {
 });
 }
 renderInitialCards();
+
+
+const formValidator = {
+  formSelector: ".popup__form",
+  inputSelector: ".popup__item",
+  submitButtonSelector: ".button-submit",
+  inactiveButtonClass: "pinput__btn_disabled",
+  // inputErrorClass: "popup__input_type_error",
+  errorClass: "popup__item-error"
+};
+
+const editForm = new FormValidator (formValidator);
+editForm._enableValidation();
