@@ -5,13 +5,8 @@ export default class FormValidator {
     this.errorClass = errorClass,
     this.submitButtonSelector = submitButtonSelector,
     this.inactiveButtonClass = inactiveButtonClass,
-    this.errorElement = errorElement
-  }
-/*
-class FormValidator {
-  constructor (errorElement){
     this._errorElement = errorElement
-  } */
+  }
 
   _showInputError = (formElement, inputElement, errorMessage) => {
     this._errorElement = formElement.querySelector(`.${inputElement.id}-error`);
@@ -40,18 +35,18 @@ class FormValidator {
   }
 
   _toggleButton = (formElement, inputList) =>{
-    const buttonElement = formElement.querySelector(".button-submit")
+    const buttonElement = formElement.querySelector(this.submitButtonSelector)
     if (!this._isValid(inputList)) {
       buttonElement.setAttribute("disabled", true);
-      buttonElement.classList.add("input__btn_disabled"); }
+      buttonElement.classList.add(this.inactiveButtonClass); }
     else {
       buttonElement.removeAttribute("disabled", false);
-      buttonElement.classList.remove("input__btn_disabled");
+      buttonElement.classList.remove(this.inactiveButtonClass);
     }
   }
 
   _setEventListeners (formElement) {
-    const inputList = Array.from(formElement.querySelectorAll(".popup__item"));
+    const inputList = Array.from(formElement.querySelectorAll(this.inputSelector));
 
     inputList.forEach((inputElement) => {
       inputElement.addEventListener("input", () => {
@@ -62,7 +57,7 @@ class FormValidator {
   };
 
   _enableValidation() {
-    const formList = Array.from(document.querySelectorAll(".popup__form"));
+    const formList = Array.from(document.querySelectorAll(this.formSelector));
 
     formList.forEach((formElement) => {
     formElement.addEventListener("submit", function (evt) {
@@ -72,4 +67,3 @@ class FormValidator {
   });
   };
 }
- //    enableValidation()

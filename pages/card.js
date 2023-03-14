@@ -1,6 +1,6 @@
 import { initialCards, templateCard, cardsContainer } from "./constants.js";
 
-export class Card {
+export default class Card {
   constructor(data) {
     this._title = data.title,
     this._link = data.link;
@@ -22,7 +22,6 @@ export class Card {
 
 //PARA EXPANDIR LA IMAGEN
   _handleClick() {
-
     const popupImage = document.querySelector('.popup_image');
       popupImage.querySelector('.popup__image').src = this._link;
       popupImage.classList.add('popup__show');
@@ -59,8 +58,3 @@ export class Card {
   }
 }
 
-// initialCards.forEach((data) => {
-//   const cardCreated = new Card(data).generateCard();
-//   cardCreated.setAttribute("title", data.title);
-//   cardsContainer.prepend(cardCreated);
-// });
