@@ -1,42 +1,32 @@
-import { popup, popupImage, popupNewCard, popupProfile, closeButtonAddCard, closeButtonNewImage, newCardButton, openFormButton } from "../pages/constants";
-
-class PopUp {
-  constructor(formSelector){
-    this._formSelector = formSelector;
+export default class PopUp {
+  constructor(popupSelector){
+    this._popupElement = popupSelector;
   }
 
   open () {
-    popupNewCard.classList.add('popup__show');
-    popup.classList.toggle('popup__opened');
+    this._popupElement.classList.add('popup__opened');
+    this._hadleEscClose();
   }
   close () {
-    popup.remove();
+    this._popupElement.classList.remove('popup__opened');
   }
 
   _hadleEscClose () {
-
+    document.addEventListener("keydown", (evt)=> {
+    if(evt.key === "Escape") {
+      this.close();
+    }
+  })
   }
 
   setEventListener () {
-    closeButtonAddCard.addEventListener("click", () => {
-      console.log("delete btn click")
-      this.close();
-    });
-
-    closeButtonNewImage.addEventListener("click", () => {
-      console.log("delete btn click")
-      this.close();
-    });
-
-    newCardButton.addEventListener("click", () => {
-      console.log("delete btn click")
-      this.open();
-    });
-
-    openFormButton.addEventListener("click", () => {
-      console.log("delete btn click")
-      this.open();
-    });
-
+    this._popupElement.querySelector(".close-button").addEventListener("click", ()=> {
+      this.close()
+    })
+    document.addEventListener('click', (evt)=> {
+      if(evt.target.classList.contains('popup')) {
+      this.close()
+    }
+    })
   }
 }
