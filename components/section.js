@@ -1,23 +1,16 @@
-import { cardsContainer } from "../pages/constants";
-import { initialCards } from "../pages/constants";
-
 class Section {
-  constructor({ item, renderer }, containerSelector ) {
-    this._initialArray = item;
+  constructor({ items, renderer }, containerSelector ) {
+    this._items = items;
     this._renderer = renderer;
-    this._container = document.querySelector(containerSelector);
+    this._containerSelector = containerSelector;
   }
   renderer() {
-    initialCards.forEach((data) => {
-      const cardCreated = new Card(data).generateCard();
-      cardCreated.setAttribute("title", data.title);
-      cardsContainer.prepend(cardCreated);
-
- //     this.addItem(cardElement);
+    this._items.forEach((item) => {
+      this._renderer(item);
     });
   }
 
   addItem(element) {
-    this._container.append(element);
+    this._containerSelector.append(element);
   }
 }

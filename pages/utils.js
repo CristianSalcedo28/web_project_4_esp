@@ -13,6 +13,13 @@ openFormButton.addEventListener('click', (evt)=> {
 });
 // closeButton.addEventListener('click', toggleForm);
 
+newCardButton.addEventListener('.click', (evt)=> {
+  const popupNewCard = document.querySelector(".popup_new-card")
+    const popupAddCard = new PopupWithForm(popupNewCard)
+    popupAddCard.open();
+    popupAddCard.setEventListener();
+});
+
 const formElement = document.querySelector('.popup__container')
 
 function changeTitle(evt){
@@ -61,8 +68,8 @@ closeButtonAddCard.addEventListener('click', function(event){
   popupNewCard.classList.remove('popup__show');
 });
 
-// para cerrar popup imagen
-// closeButtonNewImage.addEventListener('click', function(event){
-//   popupImage.classList.remove('popup__show');
-// });
+//para cerrar popup imagen
+closeButtonNewImage.addEventListener('click', function(event){
+  popupImage.classList.remove('popup__show');
+});
 
