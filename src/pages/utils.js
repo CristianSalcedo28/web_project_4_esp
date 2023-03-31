@@ -1,11 +1,13 @@
 import { openFormButton, popup, closeButton, popupProfile, newCardButton, cardsContainer, popupNewCard, popupImage, templateCard, form, closeButtonAddCard, closeButtonNewImage } from "./constants.js"
-import PopUp from "../components/popup.js";
+import PopUp from "../src/components/popup.js.js";
+import PopupWithForm from "../components/popupWithForm.js";
 
 function toggleForm() {
   popup.classList.toggle('popup__opened');
 }
 
 openFormButton.addEventListener('click', (evt)=> {
+  console.log(probando)
   const popupProfile = document.querySelector(".popup_profile")
     const popup = new PopUp(popupProfile)
     popup.open();
@@ -20,7 +22,7 @@ newCardButton.addEventListener('.click', (evt)=> {
     popupAddCard.setEventListener();
 });
 
-const formElement = document.querySelector('.popup__container')
+//const formElement = document.querySelector('.popup__container')
 
 function changeTitle(evt){
   evt.preventDefault();

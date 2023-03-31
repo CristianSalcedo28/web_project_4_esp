@@ -1,6 +1,7 @@
-import {  initialCards, cardsContainer, popupNewCard, templateCard, form } from "./constants.js"
-import  Card  from "./card.js"
-import FormValidator from "./formValidator.js"
+import "./styles/index.css"
+import {  initialCards, cardsContainer, popupNewCard, templateCard, form } from "./pages/constants.js"
+import  Card  from "./pages/card.js"
+import FormValidator from "./pages/formValidator.js"
 
 form.addEventListener('submit', function(event){
   event.preventDefault();

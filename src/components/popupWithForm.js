@@ -1,4 +1,4 @@
-import PopUp from "./popup.js"
+import PopUp from "./popup.js.js"
 
 export default class PopupWithForm extends PopUp {
   constructor(popupSelector, handleFormSubmit){

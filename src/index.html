@@ -3,17 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="pages/index.css">
   <title>Alrededor de los EE.UU.</title>
 </head>
 <body>
     <div class="page">
         <header class="header">
-            <img src="images/Vector.svg" alt="Logo Around the U.S." class="title">
+            <img src="<%=require('./images/Vector.svg')%>" alt="Logo Around the U.S." class="title">
         </header>
         <main class="content">
             <section class="profile">
-                <img src="images/image.jpg" alt="Foto del Usuario" class="profile__avatar">
+                <img src="<%=require('./images/image.jpg')%>" alt="Foto del Usuario" class="profile__avatar">
                 <div class="profile__info">
                     <p class="profile__name">Jacques Cousteau</p>
                     <p class="profile__profession">Explorador</p>
@@ -74,7 +73,7 @@
       </div>
       </template>
 
-    <script type="module" src="pages/script.js"></script>
+    <script type="module" src="src/index.js"></script>
     <script type="module" src="pages/utils.js"></script>
     <script type="module" src="components/popup.js"></script>
     <script type="module" src="components/popupWithForm.js"></script>
