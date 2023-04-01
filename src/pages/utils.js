@@ -7,7 +7,7 @@ function toggleForm() {
 }
 
 openFormButton.addEventListener('click', (evt)=> {
-  console.log(probando)
+  console.log("probando")
   const popupProfile = document.querySelector(".popup_profile")
     const popup = new PopUp(popupProfile)
     popup.open();

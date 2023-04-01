@@ -9,7 +9,7 @@ export const popupImage = document.querySelector('.popup_image');
 export const templateCard = document.querySelector('.template__card').content.querySelector('.cards__item');
 export const form = document.querySelector('.popup__form_image');
 export const closeButtonAddCard = form.querySelector('.close-button');
-export const closeButtonNewImage = document.querySelector('.close-button-image');
+export const closeButtonNewImage = document.querySelector('#close-button-image');
 
 export const initialCards = [
   {

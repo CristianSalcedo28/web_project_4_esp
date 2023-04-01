@@ -1,14 +1,14 @@
-export default class PopUp {
+export default class Popup {
   constructor(popupSelector){
     this._popupElement = popupSelector;
   }
 
   open () {
-    this._popupElement.classList.add('popup__opened');
+    this._popupElement.classList.add('popup__show');
     this._hadleEscClose();
   }
   close () {
-    this._popupElement.classList.remove('popup__opened');
+    this._popupElement.classList.remove('popup__show');
   }
 
   _hadleEscClose () {
