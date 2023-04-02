@@ -1,4 +1,4 @@
-import { initialCards, templateCard, cardsContainer } from "./constants.js";
+import { initialCards, templateCard, cardsContainer } from "../pages/constants.js";
 
 export default class Card {
   constructor(data) {
@@ -30,7 +30,6 @@ export default class Card {
 
   _setEventListeners() {
     this.cardBtnDelete.addEventListener("click", () => {
-      console.log("delete btn click")
       this._handleBtnDelete();
     });
 
