@@ -5,6 +5,7 @@ import FormValidator from "./components/formValidator.js"
 import { openFormButton, popup, closeButton, popupProfile, newCardButton, cardsContainer, popupNewCard, popupImage, templateCard, form, closeButtonAddCard, closeButtonNewImage } from "./pages/constants.js"
 import Popup from "./components/popup.js";
 import PopupWithForm from "./components/popupWithForm.js";
+import PopupWithImage from "./components/PopupWithImage"
 
 form.addEventListener('submit', function(event){
   event.preventDefault();
@@ -52,13 +53,21 @@ openFormButton.addEventListener('click', (evt)=> {
     popup.open();
     popup.setEventListener();
 });
-// closeButton.addEventListener('click', toggleForm);
+
 newCardButton.addEventListener('click', (evt)=> {
-  const popupNewCard2 = document.querySelector(".popup_new-card")
-    const popupAddCard = new PopupWithForm(popupNewCard2)
+  const popupAddNewCard = document.querySelector(".popup_new-card")
+    const popupAddCard = new PopupWithForm(popupAddNewCard)
     popupAddCard.open();
     popupAddCard.setEventListener();
 });
+
+
+closeButtonNewImage.addEventListener('click', (evt)=> {
+  const popupExpandedImage = document.querySelector(".popup_image")
+    const popupImage = new PopupWithImage(popupExpandedImage)
+    popupImage.setEventListener();
+});
+
 
 //const formElement = document.querySelector('.popup__container')
 
@@ -107,7 +116,7 @@ document.querySelector(".popup__form").addEventListener('submit', changeTitle);
 // closeButtonAddCard.addEventListener('click', function(event){
 //   popupNewCard.classList.remove('popup__show');
 // });
-// //para cerrar popup imagen
+//para cerrar popup imagen
 // closeButtonNewImage.addEventListener('click', function(event){
 //   popupImage.classList.remove('popup__show');
 // });
