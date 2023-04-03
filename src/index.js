@@ -1,5 +1,5 @@
 import "./styles/index.css"
-import {  initialCards } from "./pages/constants.js"
+import {  initialCards, profileName, profileTitle } from "./pages/constants.js"
 import  Card  from "./components/card.js"
 import FormValidator from "./components/formValidator.js"
 import { openFormButton, popup, closeButton, popupProfile, newCardButton, cardsContainer, popupNewCard, popupImage, templateCard, form, closeButtonAddCard, closeButtonNewImage } from "./pages/constants.js"
@@ -61,15 +61,11 @@ newCardButton.addEventListener('click', (evt)=> {
     popupAddCard.setEventListener();
 });
 
-
 closeButtonNewImage.addEventListener('click', (evt)=> {
   const popupExpandedImage = document.querySelector(".popup_image")
     const popupImage = new PopupWithImage(popupExpandedImage)
     popupImage.setEventListener();
 });
-
-
-//const formElement = document.querySelector('.popup__container')
 
 function changeTitle(evt){
   evt.preventDefault();
@@ -87,37 +83,3 @@ const submitButton = document.querySelector('.button-submit');
 submitButton.addEventListener("click", toggleForm);
 
 document.querySelector(".popup__form").addEventListener('submit', changeTitle);
-
-//para quitar la foto ampliada con Escape
-// const keyHandler = (evt) => {
-//   if(evt.key === "Escape") {
-//    popupImage.classList.remove('popup__show');
-//    popupNewCard.classList.remove('popup__show');
-//    popupProfile.classList.remove('popup__opened');
-//   }
-// }
-
-// document.addEventListener('keydown', keyHandler)
-
-//para quitar la foto con un click afuera
-// document.addEventListener('click', function(event) {
-//   if(event.target.classList.contains('popup')){
-//     popupImage.classList.remove('popup__show');
-//     popupNewCard.classList.remove('popup__show');
-//     popupProfile.classList.remove('popup__opened');
-//   }
-// });
-
-//abrir el popup para agregar una imagen
-// newCardButton.addEventListener('click', function(event){
-//   popupNewCard.classList.add('popup__show');
-// });
-// //cerrar el popup
-// closeButtonAddCard.addEventListener('click', function(event){
-//   popupNewCard.classList.remove('popup__show');
-// });
-//para cerrar popup imagen
-// closeButtonNewImage.addEventListener('click', function(event){
-//   popupImage.classList.remove('popup__show');
-// });
-
