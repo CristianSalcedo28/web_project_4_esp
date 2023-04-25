@@ -16,9 +16,14 @@ export default class Card {
     this.cardBtnLike.classList.toggle("button-like-active");
   }
 
-  _handleBtnDelete() {
-    this.cardElement.remove();
+  _handleBtnTrash() {
+    const popupRemove = document.querySelector(".popup_remove");
+      popupRemove.classList.add('popup__show');
   }
+
+  // _handleBtnDelete() {
+  //   this.cardElement.remove();
+  // }
 
 //PARA EXPANDIR LA IMAGEN
   _handleClick() {
@@ -30,7 +35,7 @@ export default class Card {
 
   _setEventListeners() {
     this.cardBtnDelete.addEventListener("click", () => {
-      this._handleBtnDelete();
+      this._handleBtnTrash();
     });
 
     this.cardBtnLike.addEventListener("click", () => {

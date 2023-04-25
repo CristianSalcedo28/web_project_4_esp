@@ -1,11 +1,21 @@
 import "./styles/index.css"
-import {  initialCards, profileName, profileTitle } from "./pages/constants.js"
+import {  initialCards } from "./pages/constants.js"
 import  Card  from "./components/card.js"
 import FormValidator from "./components/formValidator.js"
 import { openFormButton, popup, closeButton, popupProfile, newCardButton, cardsContainer, popupNewCard, popupImage, templateCard, form, closeButtonAddCard, closeButtonNewImage } from "./pages/constants.js"
 import Popup from "./components/popup.js";
 import PopupWithForm from "./components/popupWithForm.js";
-import PopupWithImage from "./components/PopupWithImage"
+import PopupWithImage from "./components/PopupWithImage.js";
+import UserInfo from "./components/UserInfo.js"
+import Api from "./components/Api.js"
+
+export const api = new Api({
+  baseUrl: 'https://around.nomoreparties.co/v1/web_es_cohort_03',
+  headers: {
+    authorization: '12f0e9bd-a113-4001-9763-cce8c5e105dc',
+    'Content-Type': 'application/json',
+  },
+});
 
 form.addEventListener('submit', function(event){
   event.preventDefault();
@@ -30,7 +40,19 @@ initialCards.forEach((data) => {
   cardsContainer.prepend(cardCreated);
 });
 }
-renderInitialCards();
+api.getInitialCards().then((json)=>{
+  renderInitialCards(json.title, json.link)
+})
+api.getUserInfo().then((json)=>{
+  getUserInfo(json.userName, json.userJob)
+})
+// api.setUserInfo().then((json)=>{
+//   setUserInfo(json.userName, json.userJob)
+// })
+/* api.addCard().then()
+api.setUserAvatar().then((json)=>{
+
+}) */
 
 const formValidator = {
   formSelector: ".popup__form",
@@ -67,6 +89,12 @@ closeButtonNewImage.addEventListener('click', (evt)=> {
     popupImage.setEventListener();
 });
 
+export const profileUser = new UserInfo({
+  userName: profileTitle,
+  userJob: profileProfession,
+  userAvatar: profileImage,
+});
+
 function changeTitle(evt){
   evt.preventDefault();
   this.inputName = document.querySelector('#name');
@@ -83,3 +111,4 @@ const submitButton = document.querySelector('.button-submit');
 submitButton.addEventListener("click", toggleForm);
 
 document.querySelector(".popup__form").addEventListener('submit', changeTitle);
+

@@ -62,6 +62,28 @@
         </div>
       </div>
 
+      <section class="popup popup_remove">
+        <div class="popup__container-remove">
+          <form class="popup__form popup__form_remove" name="remove">
+            <button type="button" class="close-button"></button>
+            <h3 class="popup__title">Are you sure?</h3>
+            <button disabled type="submit" class="button-submit button-submit-yes">Yes</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="popup popup_avatar">
+        <div class="popup__container-avatar">
+          <form class="popup__form popup__form_avatar" novalidate>
+            <button type="button" class="close-button"></button>
+            <h3 class="popup__title">Change Image</h3>
+            <input type="url" name="image" class="popup__item popup__item_link" id="image" placeholder="Url" required>
+            <span class="image-error popup__item-error "></span>
+            <button disabled type="submit" class="button-submit">Save</button>
+          </form>
+        </div>
+      </section>
+
       <template class="template__card">
         <div class="cards__item">
           <img src=" " alt="" class="cards__image">
@@ -69,6 +91,7 @@
           <div class="cards__text">
               <h4 class="cards__name"></h4>
               <button type="button" class="button-like"></button>
+              <span>5</span>
           </div>
       </div>
       </template>
