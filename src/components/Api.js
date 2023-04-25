@@ -37,8 +37,8 @@ export default class Api {
   }
 
   //addCard hara una petición POST al endpoint para crear una nueva tarjeta con el nombre y link especificados.
-  addCard({title, link}) {
-    return this._useFetch('POST', `${this._baseUrl}/cards`, {title, link});
+  addCard({name, link}) {
+    return this._useFetch('POST', `${this._baseUrl}/cards`, {name, link});
   }
 
   //removeCard hara una petición DELETE al endpoint para eliminar la tarjeta con el id especificado.

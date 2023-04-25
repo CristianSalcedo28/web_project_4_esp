@@ -46,13 +46,9 @@ api.getInitialCards().then((json)=>{
 api.getUserInfo().then((json)=>{
   getUserInfo(json.userName, json.userJob)
 })
-// api.setUserInfo().then((json)=>{
-//   setUserInfo(json.userName, json.userJob)
-// })
-/* api.addCard().then()
-api.setUserAvatar().then((json)=>{
-
-}) */
+api.addCard().then((json)=>{
+  addCard(json.name, json.link)
+})
 
 const formValidator = {
   formSelector: ".popup__form",
