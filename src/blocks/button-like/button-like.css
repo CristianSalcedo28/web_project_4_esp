@@ -1,12 +1,12 @@
 .button-like {
   background-image: url(../../images/like.svg);
   background-repeat: no-repeat;
-  height: 27px;
+  height: 19px;
   width: 21px;
   background-color: white;
   border: 0px;
   cursor: pointer;
-  margin: auto;
+  margin-top: 22px;
   padding-right: 30px;
 }
 

@@ -2,7 +2,7 @@ import "./styles/index.css"
 import {  initialCards } from "./pages/constants.js"
 import  Card  from "./components/card.js"
 import FormValidator from "./components/formValidator.js"
-import { openFormButton, popup, closeButton, popupProfile, newCardButton, cardsContainer, popupNewCard, popupImage, templateCard, form, closeButtonAddCard, closeButtonNewImage } from "./pages/constants.js"
+import { openFormButton, popup, closeButton, popupProfile, newCardButton, cardsContainer, popupNewCard, popupImage, templateCard, form, closeButtonAddCard, closeButtonNewImage, avatar, popupAvatar } from "./pages/constants.js"
 import Popup from "./components/popup.js";
 import PopupWithForm from "./components/popupWithForm.js";
 import PopupWithImage from "./components/PopupWithImage.js";
@@ -15,6 +15,10 @@ export const api = new Api({
     authorization: '12f0e9bd-a113-4001-9763-cce8c5e105dc',
     'Content-Type': 'application/json',
   },
+});
+
+avatar.addEventListener("click", function(event){
+  popupAvatar.classList.add('popup__show');
 });
 
 form.addEventListener('submit', function(event){
@@ -46,9 +50,9 @@ api.getInitialCards().then((json)=>{
 api.getUserInfo().then((json)=>{
   getUserInfo(json.userName, json.userJob)
 })
-api.addCard().then((json)=>{
-  addCard(json.name, json.link)
-})
+// api.addCard().then((json)=>{
+//   addCard(json.name, json.link)
+// })
 
 const formValidator = {
   formSelector: ".popup__form",

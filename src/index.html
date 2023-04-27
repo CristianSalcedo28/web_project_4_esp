@@ -12,7 +12,11 @@
         </header>
         <main class="content">
             <section class="profile">
-                <img src="<%=require('./images/image.jpg')%>" alt="Foto del Usuario" class="profile__avatar">
+                <img src="<%=require('./images/image.jpg')%>"
+                onmouseover="this.src='<%=require('./images/Edit_Button-mobile.svg')%>'"
+                onmouseout="this.src='<%=require('./images/image.jpg')%>'"
+                alt="Foto del Usuario"
+                class="profile__avatar">
                 <div class="profile__info">
                     <p class="profile__name">Jacques Cousteau</p>
                     <p class="profile__profession">Explorador</p>
@@ -90,10 +94,12 @@
           <button type="button" class="button-trash"></button>
           <div class="cards__text">
               <h4 class="cards__name"></h4>
-              <button type="button" class="button-like"></button>
-              <span>5</span>
+              <div class="cards__like">
+                <button type="button" class="button-like"></button>
+                <span class="likes__counter">5</span>
+              </div>
           </div>
-      </div>
+        </div>
       </template>
   </body>
 </html>

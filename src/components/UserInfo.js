@@ -2,7 +2,7 @@ export default class UserInfo {
   constructor({userName, userJob, userAvatar}){
     this._userName = userName;
     this._userJob = userJob;
-    this._userAvatar = userAvatar;
+    //this._userAvatar = userAvatar;
   }
 
   getUserInfo() {

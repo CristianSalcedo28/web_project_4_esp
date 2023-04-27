@@ -12,7 +12,9 @@ export const closeButtonAddCard = form.querySelector('.close-button');
 export const closeButtonNewImage = document.querySelector('#close-button-image');
 // export const profileTitle = document.querySelector('.profile__name');
 // export const profileJob = document.querySelector('.profile__profession');
-export const profileImage = document.querySelector('.profile__avatar');
+//export const profileImage = document.querySelector('.profile__avatar');
+export const popupAvatar = document.querySelector(".popup_avatar");
+export const avatar = document.querySelector(".profile__avatar");
 export const initialCards = [
   {
     title: 'Valle de Yosemite',
