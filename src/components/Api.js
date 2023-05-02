@@ -41,22 +41,22 @@ export default class Api {
     return this._useFetch('POST', `${this._baseUrl}/cards`, {name, link});
   }
 
-  //removeCard hara una petición DELETE al endpoint para eliminar la tarjeta con el id especificado.
+  //para eliminar la tarjeta con el id especificado.
   removeCard(cardId) {
     return this._useFetch('DELETE', `${this._baseUrl}/cards/${cardId}`);
   }
 
-  //setUserAvatar hara una petición PATCH al endpoint para actualizar el avatar del usuario actual con el link especificado.
+  //para actualizar el avatar del usuario actual con el link especificado.
   setUserAvatar(avatar) {
     return this._useFetch('PATCH', `${this._baseUrl}/users/me/avatar`, {avatar});
   }
 
-  //addLike hara una petición PUT al endpoint para agregar un like a la tarjeta con el id especificado.
+  //para agregar un like a la tarjeta con el id especificado.
   addLike(cardId) {
     return this._useFetch('PUT', `${this._baseUrl}/cards/likes/${cardId}`);
   }
 
-  //removeLike hara una petición DELETE al endpoint para eliminar el like a la tarjeta con el id especificado.
+  //para eliminar el like a la tarjeta con el id especificado.
   removeLike(cardId) {
     return this._useFetch('DELETE', `${this._baseUrl}/cards/likes/${cardId}`);
   }

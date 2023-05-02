@@ -2,8 +2,10 @@ import { initialCards, templateCard, cardsContainer } from "../pages/constants.j
 
 export default class Card {
   constructor(data) {
-    this._title = data.title,
+    this._title = data.title;
     this._link = data.link;
+    this._likes = data.likes;
+    this.cardId = data._id;
   }
 
   // para crear las tarjetas iniciales con js

@@ -9,6 +9,10 @@ import PopupWithImage from "./components/PopupWithImage.js";
 import UserInfo from "./components/UserInfo.js"
 import Api from "./components/Api.js"
 
+const popupAddNewCard = document.querySelector(".popup_new-card")
+const popupAddCard = new PopupWithForm(popupAddNewCard)
+const popupEditProfile = new PopupWithForm(popupProfile)
+
 export const api = new Api({
   baseUrl: 'https://around.nomoreparties.co/v1/web_es_cohort_03',
   headers: {
@@ -21,21 +25,22 @@ avatar.addEventListener("click", function(event){
   popupAvatar.classList.add('popup__show');
 });
 
-form.addEventListener('submit', function(event){
-  event.preventDefault();
-  // obtener el valor del titulo
-  const title = document.querySelector('#title').value;
-  // obtener el valor del url
-  const link = document.querySelector('#image').value;
-  // crear nueva tarjeta
-  const nuevaTarjeta = new Card({link, title}).generateCard();
-  nuevaTarjeta.setAttribute("title", title);
-  // cerrar el popup
-  popupNewCard.classList.remove('popup__show');
-  // limpiar el formulario
-  cardsContainer.prepend(nuevaTarjeta);
-  event.target.reset();
-});
+
+// form.addEventListener('submit', function(event){
+//   event.preventDefault();
+//   // obtener el valor del titulo
+//   const title = document.querySelector('#title').value;
+//   // obtener el valor del url
+//   const link = document.querySelector('#image').value;
+//   // crear nueva tarjeta
+//   const nuevaTarjeta = new Card({link, title}).generateCard();
+//   nuevaTarjeta.setAttribute("title", title);
+//   // cerrar el popup
+//   popupNewCard.classList.remove('popup__show');
+//   // limpiar el formulario
+//   cardsContainer.prepend(nuevaTarjeta);
+//   event.target.reset();
+// });
 
 function renderInitialCards() {
 initialCards.forEach((data) => {
@@ -48,11 +53,8 @@ api.getInitialCards().then((json)=>{
   renderInitialCards(json.title, json.link)
 })
 api.getUserInfo().then((json)=>{
-  getUserInfo(json.userName, json.userJob)
+  getUserInfo(json.userName, json.userJob, json.userAvatar)
 })
-// api.addCard().then((json)=>{
-//   addCard(json.name, json.link)
-// })
 
 const formValidator = {
   formSelector: ".popup__form",
@@ -76,39 +78,34 @@ openFormButton.addEventListener('click', (evt)=> {
     popup.setEventListener();
 });
 
-newCardButton.addEventListener('click', (evt)=> {
-  const popupAddNewCard = document.querySelector(".popup_new-card")
-    const popupAddCard = new PopupWithForm(popupAddNewCard)
-    popupAddCard.open();
-    popupAddCard.setEventListener();
-});
+ newCardButton.addEventListener('click', (evt)=> {
+     popupAddCard.open();
+ });
+ popupAddCard.setEventListener();
 
-closeButtonNewImage.addEventListener('click', (evt)=> {
-  const popupExpandedImage = document.querySelector(".popup_image")
-    const popupImage = new PopupWithImage(popupExpandedImage)
-    popupImage.setEventListener();
-});
 
-export const profileUser = new UserInfo({
-  userName: profileTitle,
-  userJob: profileProfession,
-  userAvatar: profileImage,
-});
+// closeButtonNewImage.addEventListener('click', (evt)=> {
+//   const popupExpandedImage = document.querySelector(".popup_image")
+//     const popupImage = new PopupWithImage(popupExpandedImage)
+//     popupImage.setEventListener();
+// });
 
-function changeTitle(evt){
-  evt.preventDefault();
-  this.inputName = document.querySelector('#name');
-  this.inputProfession = document.querySelector('#profession');
 
-  this.profileName = document.querySelector('.profile__name');
-  this.profileProfession = document.querySelector('.profile__profession');
 
-  this.profileName.textContent = this.inputName.value;
-  this.profileProfession.textContent = this.inputProfession.value;
-}
+// function changeTitle(evt){
+//   evt.preventDefault();
+//   this.inputName = document.querySelector('#name');
+//   this.inputProfession = document.querySelector('#profession');
 
-const submitButton = document.querySelector('.button-submit');
-submitButton.addEventListener("click", toggleForm);
+//   this.profileName = document.querySelector('.profile__name');
+//   this.profileProfession = document.querySelector('.profile__profession');
 
-document.querySelector(".popup__form").addEventListener('submit', changeTitle);
+//   this.profileName.textContent = this.inputName.value;
+//   this.profileProfession.textContent = this.inputProfession.value;
 
+// }
+
+// const submitButton = document.querySelector('.button-submit');
+// submitButton.addEventListener("click", toggleForm);
+
+// document.querySelector(".popup__form").addEventListener('submit', changeTitle);
