@@ -10,8 +10,13 @@ import UserInfo from "./components/UserInfo.js"
 import Api from "./components/Api.js"
 
 const popupAddNewCard = document.querySelector(".popup_new-card")
-const popupAddCard = new PopupWithForm(popupAddNewCard)
-const popupEditProfile = new PopupWithForm(popupProfile)
+
+const profileName = document.querySelector('.profile__name');
+const profileProfession = document.querySelector('.profile__profession');
+const profileAvatar = document.querySelector('.profile__avatar');
+
+const profileInfo = new UserInfo({userName: profileName, userJob: profileProfession, userAvatar: profileAvatar})
+
 
 export const api = new Api({
   baseUrl: 'https://around.nomoreparties.co/v1/web_es_cohort_03',
@@ -24,6 +29,10 @@ export const api = new Api({
 avatar.addEventListener("click", function(event){
   popupAvatar.classList.add('popup__show');
 });
+
+api.getUserInfo().then((json)=>{
+  profileInfo.setUserInfo(json)
+  })
 
 
 // form.addEventListener('submit', function(event){
@@ -42,19 +51,32 @@ avatar.addEventListener("click", function(event){
 //   event.target.reset();
 // });
 
-function renderInitialCards() {
-initialCards.forEach((data) => {
-  const cardCreated = new Card(data).generateCard();
-  cardCreated.setAttribute("title", data.title);
-  cardsContainer.prepend(cardCreated);
-});
+
+const popupExpandedImage = document.querySelector(".popup_image")
+
+const popupAddCard = new PopupWithForm(popupAddNewCard, ()=> {
+  api.addCard(value).then((json)=> {
+    const card = createCard(json);
+    cardsContainer.append(card)} )
+})
+
+function createCard(data){
+  const cardCreated = new Card(data, (evt) => {
+    const modalCard = new PopupWithImage(popupExpandedImage)
+    modalCard.open(evt)
+  }).generateCard();
+  return cardCreated
 }
-api.getInitialCards().then((json)=>{
-  renderInitialCards(json.title, json.link)
-})
-api.getUserInfo().then((json)=>{
-  getUserInfo(json.userName, json.userJob, json.userAvatar)
-})
+
+function renderInitialCards() {
+  api.getInitialCards().then((json)=>{
+  json.forEach((data) => {
+    const cardCreated = createCard(data);
+    cardCreated.setAttribute("title", data.title);
+    cardsContainer.prepend(cardCreated);
+  });
+})}
+renderInitialCards();
 
 const formValidator = {
   formSelector: ".popup__form",
@@ -71,24 +93,25 @@ function toggleForm() {
   popup.classList.toggle('popup__opened');
 }
 
+const popupEditProfile = new PopupWithForm(popupProfile, (value)=> {
+  api.setUserInfo({name: value.user, about: value.profession}).then(() => {
+    api.getUserInfo().then((json)=>{
+      profileInfo.setUserInfo(json)
+      })
+  })
+})
+
 openFormButton.addEventListener('click', (evt)=> {
-  const popupProfile = document.querySelector(".popup_profile")
-    const popup = new Popup(popupProfile)
-    popup.open();
-    popup.setEventListener();
+    popupEditProfile.open();
+    popupEditProfile.setEventListener();
 });
 
  newCardButton.addEventListener('click', (evt)=> {
      popupAddCard.open();
  });
+
  popupAddCard.setEventListener();
 
-
-// closeButtonNewImage.addEventListener('click', (evt)=> {
-//   const popupExpandedImage = document.querySelector(".popup_image")
-//     const popupImage = new PopupWithImage(popupExpandedImage)
-//     popupImage.setEventListener();
-// });
 
 
 

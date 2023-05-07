@@ -34,28 +34,31 @@ export default class PopupWithForm extends Popup {
         evt.target.reset();
   }
 
-  _editProfile(value) {
-    api.setUserInfo((data) =>{
-      const popupProfile = document.querySelector(".popup_profile");
-        popupProfile.classList.add('popup__show');
-      this._userName.textContent = data.userName;
-      this._userJob.textContent = data.userJob;
-      this._userAvatar = data._userAvatar;
-    })
-  }
-
+  // _editProfile(value) {
+  //   api.setUserInfo((data) =>{
+  //     const popupProfile = document.querySelector(".popup_profile");
+  //       popupProfile.classList.add('popup__show');
+  //     this._userName.textContent = data.userName;
+  //     this._userJob.textContent = data.userJob;
+  //     this._userAvatar = data._userAvatar;
+  //   })
+  // }
 
   _getInputValues(){
     this.formValues = {};
     this._inputList.forEach((input) => {
-      this._formValues[input.title] = input.value;
+     return this.formValues[input.name] = input.value;
     });
-    return this._formValues;
+    return this.formValues;
   }
 
   setEventListener () {
     super.setEventListener()
-    this._formElement.addEventListener('submit', this.handleFormSubmit)
+    this._formElement.addEventListener('submit', (evt)=> {
+      evt.preventDefault()
+      this.handleFormSubmit(this._getInputValues())
+      this.close();
+    })
   }
 
 }

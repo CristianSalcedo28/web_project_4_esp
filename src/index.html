@@ -12,14 +12,14 @@
         </header>
         <main class="content">
             <section class="profile">
-                <img src="<%=require('./images/image.jpg')%>"
-                onmouseover="this.src='<%=require('./images/Edit_Button-mobile.svg')%>'"
-                onmouseout="this.src='<%=require('./images/image.jpg')%>'"
+              <div class="profile__avatar">
+                <button
                 alt="Foto del Usuario"
-                class="profile__avatar">
+                class="profile__avatar-btn"></button>
+              </div>
                 <div class="profile__info">
-                    <p class="profile__name">Jacques Cousteau</p>
-                    <p class="profile__profession">Explorador</p>
+                    <p class="profile__name"></p>
+                    <p class="profile__profession"></p>
                 </div>
                     <button type="button" class="button-edit"></button>
                 <button type="button" class="button-add"></button>

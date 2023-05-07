@@ -1,11 +1,12 @@
 import { initialCards, templateCard, cardsContainer } from "../pages/constants.js";
 
 export default class Card {
-  constructor(data) {
-    this._title = data.title;
+  constructor(data, imageModal) {
+    this._title = data.name;
     this._link = data.link;
     this._likes = data.likes;
     this.cardId = data._id;
+    this.imageModal = imageModal;
   }
 
   // para crear las tarjetas iniciales con js
@@ -28,12 +29,12 @@ export default class Card {
   // }
 
 //PARA EXPANDIR LA IMAGEN
-  _handleClick() {
-    const popupImage = document.querySelector('.popup_image');
-      popupImage.querySelector('.popup__image').src = this._link;
-      popupImage.classList.add('popup__show');
-      document.querySelector('.popup__text').textContent = this._title;
-  }
+  // _handleClick() {
+  //   const popupImage = document.querySelector('.popup_image');
+  //     popupImage.querySelector('.popup__image').src = this._link;
+  //     popupImage.classList.add('popup__show');
+  //     document.querySelector('.popup__text').textContent = this._title;
+  // }
 
   _setEventListeners() {
     this.cardBtnDelete.addEventListener("click", () => {
@@ -43,14 +44,14 @@ export default class Card {
     this.cardBtnLike.addEventListener("click", () => {
       this._handleBtnLike();
     });
-    this.cardElement.querySelector(".cards__image").addEventListener('click',() => {
-      this._handleClick();
-    });
+    this.cardElement.querySelector(".cards__image").addEventListener('click',this.imageModal
+    );
   }
 
   setCardProperties() {
     this.cardElement.querySelector(".cards__name").textContent = this._title;
     this.cardElement.querySelector(".cards__image").src = this._link;
+    this.cardElement.querySelector(".cards__image").alt = this._title;
     this.cardBtnLike = this.cardElement.querySelector(".button-like");
     this.cardBtnDelete = this.cardElement.querySelector(".button-trash");
   }
