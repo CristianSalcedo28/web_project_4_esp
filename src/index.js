@@ -8,6 +8,7 @@ import PopupWithForm from "./components/popupWithForm.js";
 import PopupWithImage from "./components/PopupWithImage.js";
 import UserInfo from "./components/UserInfo.js"
 import Api from "./components/Api.js"
+import PopupDeleteImage from "./components/popupDeleteImage"
 
 const popupAddNewCard = document.querySelector(".popup_new-card")
 
@@ -15,7 +16,11 @@ const profileName = document.querySelector('.profile__name');
 const profileProfession = document.querySelector('.profile__profession');
 const profileAvatar = document.querySelector('.profile__avatar');
 
+const popupRemove = document.querySelector(".popup_remove");
+const deleteCardSubmit = document.querySelector(".button-submit-yes");
+
 const profileInfo = new UserInfo({userName: profileName, userJob: profileProfession, userAvatar: profileAvatar})
+const deleteCardPopup = new PopupDeleteImage({popupSelector: popupRemove, submitButton: deleteCardSubmit})
 
 
 export const api = new Api({
@@ -26,14 +31,13 @@ export const api = new Api({
   },
 });
 
-avatar.addEventListener("click", function(event){
-  popupAvatar.classList.add('popup__show');
-});
-
 api.getUserInfo().then((json)=>{
   profileInfo.setUserInfo(json)
   })
 
+api.removeCard().then((json)=> {
+  deleteCardPopup.setEventListener(json)
+})
 
 // form.addEventListener('submit', function(event){
 //   event.preventDefault();
@@ -54,10 +58,10 @@ api.getUserInfo().then((json)=>{
 
 const popupExpandedImage = document.querySelector(".popup_image")
 
-const popupAddCard = new PopupWithForm(popupAddNewCard, ()=> {
-  api.addCard(value).then((json)=> {
-    const card = createCard(json);
-    cardsContainer.append(card)} )
+const popupAddCard = new PopupWithForm(popupAddNewCard, (value)=> {
+  api.addCard({name: value.title, link: value.link}).then((json)=> {
+    const card = cardCreated(json);
+    cardsContainer.prepend(card)})
 })
 
 function createCard(data){
@@ -101,16 +105,30 @@ const popupEditProfile = new PopupWithForm(popupProfile, (value)=> {
   })
 })
 
+const popupSetAvatar = new PopupWithForm(popupAvatar, (value)=> {
+  api.setUserAvatar({avatar: value.avatar}).then(() => {
+    api.getUserInfo().then((json)=>{
+      profileInfo.setUserAvatar(json)
+      })
+  })
+})
+
 openFormButton.addEventListener('click', (evt)=> {
     popupEditProfile.open();
     popupEditProfile.setEventListener();
 });
 
- newCardButton.addEventListener('click', (evt)=> {
-     popupAddCard.open();
- });
+newCardButton.addEventListener('click', (evt)=> {
+  popupAddCard.open();
+});
+popupAddCard.setEventListener();
 
- popupAddCard.setEventListener();
+avatar.addEventListener("click", function(event){
+  popupSetAvatar.open();
+  popupSetAvatar.setEventListener();
+});
+
+
 
 
 
