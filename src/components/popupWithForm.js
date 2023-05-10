@@ -17,33 +17,6 @@ export default class PopupWithForm extends Popup {
     this._formElement.reset()
   }
 
-  _addCard() {
-      popupNewCard.classList.add('popup__show');
-        evt.preventDefault();
-        // obtener el valor del titulo
-        const title = document.querySelector('#title').value;
-        // obtener el valor del url
-        const link = document.querySelector('#image').value;
-        // crear nueva tarjeta
-        const nuevaTarjeta = new Card({link, title}).generateCard();
-        nuevaTarjeta.setAttribute("title", title);
-        // cerrar el popup
-        popupNewCard.classList.remove('popup__show');
-        // limpiar el formulario
-        cardsContainer.prepend(nuevaTarjeta);
-        evt.target.reset();
-  }
-
-  // _editProfile(value) {
-  //   api.setUserInfo((data) =>{
-  //     const popupProfile = document.querySelector(".popup_profile");
-  //       popupProfile.classList.add('popup__show');
-  //     this._userName.textContent = data.userName;
-  //     this._userJob.textContent = data.userJob;
-  //     this._userAvatar = data._userAvatar;
-  //   })
-  // }
-
   _getInputValues(){
     this.formValues = {};
     this._inputList.forEach((input) => {

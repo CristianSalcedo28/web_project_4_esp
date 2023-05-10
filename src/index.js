@@ -20,8 +20,6 @@ const popupRemove = document.querySelector(".popup_remove");
 const deleteCardSubmit = document.querySelector(".button-submit-yes");
 
 const profileInfo = new UserInfo({userName: profileName, userJob: profileProfession, userAvatar: profileAvatar})
-const deleteCardPopup = new PopupDeleteImage({popupSelector: popupRemove, submitButton: deleteCardSubmit})
-
 
 export const api = new Api({
   baseUrl: 'https://around.nomoreparties.co/v1/web_es_cohort_03',
@@ -35,25 +33,21 @@ api.getUserInfo().then((json)=>{
   profileInfo.setUserInfo(json)
   })
 
-api.removeCard().then((json)=> {
-  deleteCardPopup.setEventListener(json)
-})
-
-// form.addEventListener('submit', function(event){
-//   event.preventDefault();
+//  form.addEventListener('submit', function(event){
+//    event.preventDefault();
 //   // obtener el valor del titulo
-//   const title = document.querySelector('#title').value;
+//    const title = document.querySelector('#title').value;
 //   // obtener el valor del url
-//   const link = document.querySelector('#image').value;
+//    const link = document.querySelector('#image').value;
 //   // crear nueva tarjeta
 //   const nuevaTarjeta = new Card({link, title}).generateCard();
-//   nuevaTarjeta.setAttribute("title", title);
+//    nuevaTarjeta.setAttribute("title", title);
 //   // cerrar el popup
 //   popupNewCard.classList.remove('popup__show');
 //   // limpiar el formulario
 //   cardsContainer.prepend(nuevaTarjeta);
-//   event.target.reset();
-// });
+// //   event.target.reset();
+//  });
 
 
 const popupExpandedImage = document.querySelector(".popup_image")
@@ -106,10 +100,8 @@ const popupEditProfile = new PopupWithForm(popupProfile, (value)=> {
 })
 
 const popupSetAvatar = new PopupWithForm(popupAvatar, (value)=> {
-  api.setUserAvatar({avatar: value.avatar}).then(() => {
-    api.getUserInfo().then((json)=>{
+  api.setUserAvatar({avatar: value.image}).then((json) => {
       profileInfo.setUserAvatar(json)
-      })
   })
 })
 
@@ -127,10 +119,6 @@ avatar.addEventListener("click", function(event){
   popupSetAvatar.open();
   popupSetAvatar.setEventListener();
 });
-
-
-
-
 
 
 // function changeTitle(evt){

@@ -24,9 +24,9 @@ export default class Card {
       popupRemove.classList.add('popup__show');
   }
 
-  // _handleBtnDelete() {
-  //   this.cardElement.remove();
-  // }
+  _handleBtnDelete() {
+    this.cardElement.remove();
+  }
 
 //PARA EXPANDIR LA IMAGEN
   // _handleClick() {

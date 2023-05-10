@@ -48,7 +48,7 @@ export default class Api {
 
   //para actualizar el avatar del usuario actual con el link especificado.
   setUserAvatar(avatar) {
-    return this._useFetch('PATCH', `${this._baseUrl}/users/me/avatar`, {avatar});
+    return this._useFetch('PATCH', `${this._baseUrl}/users/me/avatar`, avatar);
   }
 
   //para agregar un like a la tarjeta con el id especificado.
