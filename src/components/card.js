@@ -1,12 +1,13 @@
 import { initialCards, templateCard, cardsContainer } from "../pages/constants.js";
 
 export default class Card {
-  constructor(data, imageModal) {
+  constructor(data, imageModal, handleDeleteCard) {
     this._title = data.name;
     this._link = data.link;
     this._likes = data.likes;
     this.cardId = data._id;
     this.imageModal = imageModal;
+    this.handleDeleteCard = handleDeleteCard;
   }
 
   // para crear las tarjetas iniciales con js
@@ -19,10 +20,10 @@ export default class Card {
     this.cardBtnLike.classList.toggle("button-like-active");
   }
 
-  _handleBtnTrash() {
-    const popupRemove = document.querySelector(".popup_remove");
-      popupRemove.classList.add('popup__show');
-  }
+  // _handleBtnTrash() {
+  //   const popupRemove = document.querySelector(".popup_remove");
+  //     popupRemove.classList.add('popup__show');
+  // }
 
   _handleBtnDelete() {
     this.cardElement.remove();
@@ -38,7 +39,7 @@ export default class Card {
 
   _setEventListeners() {
     this.cardBtnDelete.addEventListener("click", () => {
-      this._handleBtnTrash();
+      this.handleDeleteCard(this.cardId);
     });
 
     this.cardBtnLike.addEventListener("click", () => {

@@ -19,6 +19,7 @@ const profileAvatar = document.querySelector('.profile__avatar');
 const popupRemove = document.querySelector(".popup_remove");
 const deleteCardSubmit = document.querySelector(".button-submit-yes");
 
+
 const profileInfo = new UserInfo({userName: profileName, userJob: profileProfession, userAvatar: profileAvatar})
 
 export const api = new Api({
@@ -53,8 +54,9 @@ api.getUserInfo().then((json)=>{
 const popupExpandedImage = document.querySelector(".popup_image")
 
 const popupAddCard = new PopupWithForm(popupAddNewCard, (value)=> {
+  console.log(value);
   api.addCard({name: value.title, link: value.link}).then((json)=> {
-    const card = cardCreated(json);
+    const card = createCard(json);
     cardsContainer.prepend(card)})
 })
 
@@ -62,7 +64,15 @@ function createCard(data){
   const cardCreated = new Card(data, (evt) => {
     const modalCard = new PopupWithImage(popupExpandedImage)
     modalCard.open(evt)
-  }).generateCard();
+  }, (id)=>{
+    popupDeleteCard.open();
+    popupDeleteCard.setSubmitAction(() => {
+      api.removeCard(id).then(() =>{
+        popupDeleteCard.close();
+      })
+    });
+  }
+  ).generateCard();
   return cardCreated
 }
 
@@ -101,23 +111,24 @@ const popupEditProfile = new PopupWithForm(popupProfile, (value)=> {
 
 const popupSetAvatar = new PopupWithForm(popupAvatar, (value)=> {
   api.setUserAvatar({avatar: value.image}).then((json) => {
-      profileInfo.setUserAvatar(json)
+    profileInfo.setUserAvatar(json.avatar)
   })
 })
 
+const popupDeleteCard = new PopupDeleteImage({popupSelector: popupRemove, submitButton: deleteCardSubmit})
+  popupDeleteCard.setEventListeners();
+
 openFormButton.addEventListener('click', (evt)=> {
     popupEditProfile.open();
-    popupEditProfile.setEventListener();
 });
 
 newCardButton.addEventListener('click', (evt)=> {
   popupAddCard.open();
 });
-popupAddCard.setEventListener();
+
 
 avatar.addEventListener("click", function(event){
   popupSetAvatar.open();
-  popupSetAvatar.setEventListener();
 });
 
 

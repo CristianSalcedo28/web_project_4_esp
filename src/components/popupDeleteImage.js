@@ -25,7 +25,7 @@ export default class PopupDeleteImage extends Popup {
   }
 
   setEventListeners() {
-    super.setEventListeners();
+    super.setEventListener();
     this._popupElement.querySelector('.button-submit-yes').addEventListener('click', (evt) => {
       evt.preventDefault();
       this.renderLoading(true);
