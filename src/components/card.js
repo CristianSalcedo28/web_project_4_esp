@@ -1,13 +1,16 @@
 import { initialCards, templateCard, cardsContainer } from "../pages/constants.js";
+import  Api  from "./Api.js"
 
 export default class Card {
   constructor(data, imageModal, handleDeleteCard) {
     this._title = data.name;
     this._link = data.link;
-    this._likes = data.likes;
+    this._likes = data.likes.length;
     this.cardId = data._id;
     this.imageModal = imageModal;
     this.handleDeleteCard = handleDeleteCard;
+    this._handleBtnLike = this._handleBtnLike.bind(this);
+   // this._api = new Api();
   }
 
   // para crear las tarjetas iniciales con js
@@ -16,26 +19,21 @@ export default class Card {
     return cardTemplate;
   }
 
-  _handleBtnLike() {
-    this.cardBtnLike.classList.toggle("button-like-active");
-  }
+  async _handleBtnLike(cardId) {
+  //  this.cardBtnLike.classList.toggle("button-like-active");
 
-  // _handleBtnTrash() {
-  //   const popupRemove = document.querySelector(".popup_remove");
-  //     popupRemove.classList.add('popup__show');
-  // }
+  if (!this.cardBtnLike.classList.contains("button-like-active")) {
+    this.cardBtnLike.classList.add("button-like-active");
+      await this._api.addLike(cardId);
+  } else {
+    this.cardBtnLike.classList.remove("button-like-active");
+      await this._api.removeLike(cardId);
+  }
+   }
 
   _handleBtnDelete() {
     this.cardElement.remove();
   }
-
-//PARA EXPANDIR LA IMAGEN
-  // _handleClick() {
-  //   const popupImage = document.querySelector('.popup_image');
-  //     popupImage.querySelector('.popup__image').src = this._link;
-  //     popupImage.classList.add('popup__show');
-  //     document.querySelector('.popup__text').textContent = this._title;
-  // }
 
   _setEventListeners() {
     this.cardBtnDelete.addEventListener("click", () => {
@@ -43,7 +41,7 @@ export default class Card {
     });
 
     this.cardBtnLike.addEventListener("click", () => {
-      this._handleBtnLike();
+      this._handleBtnLike(this.cardId);
     });
     this.cardElement.querySelector(".cards__image").addEventListener('click',this.imageModal
     );
@@ -55,6 +53,10 @@ export default class Card {
     this.cardElement.querySelector(".cards__image").alt = this._title;
     this.cardBtnLike = this.cardElement.querySelector(".button-like");
     this.cardBtnDelete = this.cardElement.querySelector(".button-trash");
+
+    const cardLikesCount = this.cardElement.querySelector(".likes__counter");
+    cardLikesCount.textContent = this._likes;
+
   }
 
   generateCard() {

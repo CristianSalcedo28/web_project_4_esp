@@ -2,7 +2,7 @@ import "./styles/index.css"
 import {  initialCards } from "./pages/constants.js"
 import  Card  from "./components/card.js"
 import FormValidator from "./components/formValidator.js"
-import { openFormButton, popup, closeButton, popupProfile, newCardButton, cardsContainer, popupNewCard, popupImage, templateCard, form, closeButtonAddCard, closeButtonNewImage, avatar, popupAvatar } from "./pages/constants.js"
+import { openFormButton, popup, submitButton, popupProfile, newCardButton, cardsContainer, popupNewCard, popupImage, templateCard, form, closeButtonAddCard, closeButtonNewImage, avatar, popupAvatar } from "./pages/constants.js"
 import Popup from "./components/popup.js";
 import PopupWithForm from "./components/popupWithForm.js";
 import PopupWithImage from "./components/PopupWithImage.js";
@@ -33,6 +33,10 @@ export const api = new Api({
 api.getUserInfo().then((json)=>{
   profileInfo.setUserInfo(json)
   })
+
+api.addLike().then((json)=>{
+
+})
 
 //  form.addEventListener('submit', function(event){
 //    event.preventDefault();
@@ -105,9 +109,10 @@ const popupEditProfile = new PopupWithForm(popupProfile, (value)=> {
   api.setUserInfo({name: value.user, about: value.profession}).then(() => {
     api.getUserInfo().then((json)=>{
       profileInfo.setUserInfo(json)
-      })
+      }); submitButton.textContent = "Save";
   })
 })
+
 
 const popupSetAvatar = new PopupWithForm(popupAvatar, (value)=> {
   api.setUserAvatar({avatar: value.image}).then((json) => {

@@ -12,6 +12,7 @@ export const closeButtonAddCard = form.querySelector('.close-button');
 export const closeButtonNewImage = document.querySelector('#close-button-image');
 export const popupAvatar = document.querySelector(".popup_avatar");
 export const avatar = document.querySelector(".profile__avatar");
+export const submitButton = document.querySelector(".button-submit")
 
 export const initialCards = [
   {
