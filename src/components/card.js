@@ -7,6 +7,7 @@ export default class Card {
     this._link = data.link;
     this._likes = data.likes.length;
     this.arrayLikes = data.likes,
+    this._ownerId = data.owner._id,
     this.cardId = data._id;
     this.userId = "c5d2679ba7b5995f5b6026eb";
     this.imageModal = imageModal;
@@ -28,7 +29,6 @@ export default class Card {
   }
 
  async _handleBtnLike(cardId) {
-  //  this.cardBtnLike.classList.toggle("button-like-active");
   if (!this.cardBtnLike.classList.contains("button-like-active")) {
     this.cardBtnLike.classList.add("button-like-active");
     const likes = await  this.api.addLike(cardId);
@@ -41,10 +41,6 @@ export default class Card {
     cardLikesCount.textContent = likes.likes.length;
   }
    }
-
-  // _handleBtnDelete() {
-  //   this.cardElement.remove();
-  // }
 
   _setEventListeners() {
     this.cardBtnDelete.addEventListener("click", () => {
@@ -65,7 +61,13 @@ export default class Card {
     this.cardElement.querySelector(".cards__image").alt = this._title;
     this.cardBtnLike = this.cardElement.querySelector(".button-like");
     this.cardBtnDelete = this.cardElement.querySelector(".button-trash");
-
+    if (this._ownerId === this.userId) {
+      this.cardBtnDelete.addEventListener("click", (evt) => {
+        this.handleDeleteCard(evt);
+      });
+    } else {
+      this.cardBtnDelete.remove();
+    }
     const cardLikesCount = this.cardElement.querySelector(".likes__counter");
     cardLikesCount.textContent = this._likes;
 

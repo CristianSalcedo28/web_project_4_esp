@@ -1,5 +1,4 @@
 import "./styles/index.css"
-import {  initialCards } from "./pages/constants.js"
 import  Card  from "./components/card.js"
 import FormValidator from "./components/formValidator.js"
 import { openFormButton, popup, submitButton, popupProfile, newCardButton, cardsContainer, popupNewCard, popupImage, templateCard, form, closeButtonAddCard, closeButtonNewImage, avatar, popupAvatar } from "./pages/constants.js"
@@ -11,16 +10,21 @@ import Api from "./components/Api.js"
 import PopupDeleteImage from "./components/popupDeleteImage"
 
 const popupAddNewCard = document.querySelector(".popup_new-card")
-
 const profileName = document.querySelector('.profile__name');
 const profileProfession = document.querySelector('.profile__profession');
 const profileAvatar = document.querySelector('.profile__avatar');
-
 const popupRemove = document.querySelector(".popup_remove");
 const deleteCardSubmit = document.querySelector(".button-submit-yes");
-
-
 const profileInfo = new UserInfo({userName: profileName, userJob: profileProfession, userAvatar: profileAvatar})
+
+function loadingHandler(loading, modalSelector, text) {
+  const modal = document.querySelector(`.${modalSelector}`);
+  if (loading) {
+    modal.querySelector(".button-submi").textContent = text;
+  } else {
+    modal.querySelector(".button-submi").textContent = text;
+  }
+}
 
 export const api = new Api({
   baseUrl: 'https://around.nomoreparties.co/v1/web_es_cohort_03',
@@ -33,24 +37,6 @@ export const api = new Api({
 api.getUserInfo().then((json)=>{
   profileInfo.setUserInfo(json)
   })
-
-
-//  form.addEventListener('submit', function(event){
-//    event.preventDefault();
-//   // obtener el valor del titulo
-//    const title = document.querySelector('#title').value;
-//   // obtener el valor del url
-//    const link = document.querySelector('#image').value;
-//   // crear nueva tarjeta
-//   const nuevaTarjeta = new Card({link, title}).generateCard();
-//    nuevaTarjeta.setAttribute("title", title);
-//   // cerrar el popup
-//   popupNewCard.classList.remove('popup__show');
-//   // limpiar el formulario
-//   cardsContainer.prepend(nuevaTarjeta);
-// //   event.target.reset();
-//  });
-
 
 const popupExpandedImage = document.querySelector(".popup_image")
 
@@ -111,13 +97,12 @@ const popupEditProfile = new PopupWithForm(popupProfile, (value)=> {
   })
 })
 
-
 const popupSetAvatar = new PopupWithForm(popupAvatar, (value)=> {
   api.setUserAvatar({avatar: value.image}).then((json) => {
     profileInfo.setUserAvatar(json.avatar)
   })
 })
-console.log(deleteCardSubmit)
+
 const popupDeleteCard = new PopupDeleteImage({popupSelector: popupRemove, submitButton: deleteCardSubmit})
   popupDeleteCard.setEventListeners();
   console.log(popupDeleteCard)
@@ -135,22 +120,3 @@ newCardButton.addEventListener('click', (evt)=> {
 avatar.addEventListener("click", function(event){
   popupSetAvatar.open();
 });
-
-
-// function changeTitle(evt){
-//   evt.preventDefault();
-//   this.inputName = document.querySelector('#name');
-//   this.inputProfession = document.querySelector('#profession');
-
-//   this.profileName = document.querySelector('.profile__name');
-//   this.profileProfession = document.querySelector('.profile__profession');
-
-//   this.profileName.textContent = this.inputName.value;
-//   this.profileProfession.textContent = this.inputProfession.value;
-
-// }
-
-// const submitButton = document.querySelector('.button-submit');
-// submitButton.addEventListener("click", toggleForm);
-
-// document.querySelector(".popup__form").addEventListener('submit', changeTitle);

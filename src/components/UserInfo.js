@@ -6,16 +6,22 @@ export default class UserInfo {
   }
 
   getUserInfo() {
-     return {
+    this.userData = {
       userName: this._userName.textContent,
       userJob: this._userJob.textContent,
     };
+    return this.userData;
   }
 
   setUserInfo(data) {
     this._userName.textContent = data.name;
     this._userJob.textContent = data.about;
     this._userAvatar.style.backgroundImage = `url(${data.avatar})`;
+    this._userId = data._id;
+  }
+
+  getId() {
+    return this._userId;
   }
 
   setUserAvatar(avatar) {

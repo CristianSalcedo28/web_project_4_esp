@@ -12,31 +12,4 @@ export const closeButtonAddCard = form.querySelector('.close-button');
 export const closeButtonNewImage = document.querySelector('#close-button-image');
 export const popupAvatar = document.querySelector(".popup_avatar");
 export const avatar = document.querySelector(".profile__avatar");
-export const submitButton = document.querySelector(".button-submit")
-
-export const initialCards = [
-  {
-    title: 'Valle de Yosemite',
-    link: 'https://code.s3.yandex.net/web-code/yosemite.jpg'
-  },
-  {
-    title: 'Lago Louise',
-    link: 'https://code.s3.yandex.net/web-code/lake-louise.jpg'
-  },
-  {
-    title: 'Montañas Calvas',
-    link: 'https://code.s3.yandex.net/web-code/bald-mountains.jpg'
-  },
-  {
-    title: 'Latemar',
-    link: 'https://code.s3.yandex.net/web-code/latemar.jpg'
-  },
-  {
-    title: 'Parque Nacional de la Vanoise',
-    link: 'https://code.s3.yandex.net/web-code/vanoise.jpg'
-  },
-  {
-    title: 'Lago di Braies',
-    link: 'https://code.s3.yandex.net/web-code/lago.jpg'
-  }
-];
+export const submitButton = document.querySelector(".button-submit");

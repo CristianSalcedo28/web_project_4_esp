@@ -35,9 +35,9 @@
           <form class="popup__form" name="register" novalidate>
             <button type="button" class="close-button"></button>
             <h3 class="popup__title">Edit profile</h3>
-            <input type="text" id="name" name="user" class="popup__item popup__item_name" value="Jacques Cousteau" minlength="2" maxlength="40" required>
+            <input type="text" id="name" name="user" class="popup__item popup__item_name" value="" minlength="2" maxlength="40" required>
             <span class="name-error popup__item-error "></span>
-            <input type="text" id="profession" name="profession" class="popup__item popup__item_profession" value="Explorador" minlength="2" maxlength="200" required>
+            <input type="text" id="profession" name="profession" class="popup__item popup__item_profession" value="" minlength="2" maxlength="200" required>
             <span class="profession-error popup__item-error "></span>
             <button disabled type="submit" class="button-submit">Save</button>
           </form>
@@ -83,7 +83,7 @@
             <h3 class="popup__title">Change Image</h3>
             <input type="url" name="image" class="popup__item popup__item_link" id="image" placeholder="Url" required>
             <span class="image-error popup__item-error "></span>
-            <button disabled type="submit" class="button-submit">Save</button>
+            <button disabled type="submit" id="submitavatar" class="button-submit">Save</button>
           </form>
         </div>
       </section>
