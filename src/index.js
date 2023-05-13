@@ -34,9 +34,6 @@ api.getUserInfo().then((json)=>{
   profileInfo.setUserInfo(json)
   })
 
-api.addLike().then((json)=>{
-
-})
 
 //  form.addEventListener('submit', function(event){
 //    event.preventDefault();
@@ -68,7 +65,11 @@ function createCard(data){
   const cardCreated = new Card(data, (evt) => {
     const modalCard = new PopupWithImage(popupExpandedImage)
     modalCard.open(evt)
-  }, (id)=>{
+  },
+  // handleBtnLike, (buttonLiked) => {
+  //   return buttonLiked ? api.addLike(data._id) : api.removeLike(data._id);
+  // },
+  (id)=>{
     popupDeleteCard.open();
     popupDeleteCard.setSubmitAction(() => {
       api.removeCard(id).then(() =>{
@@ -122,6 +123,7 @@ const popupSetAvatar = new PopupWithForm(popupAvatar, (value)=> {
 
 const popupDeleteCard = new PopupDeleteImage({popupSelector: popupRemove, submitButton: deleteCardSubmit})
   popupDeleteCard.setEventListeners();
+
 
 openFormButton.addEventListener('click', (evt)=> {
     popupEditProfile.open();

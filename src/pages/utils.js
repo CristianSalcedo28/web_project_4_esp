@@ -6,21 +6,21 @@ function toggleForm() {
   popup.classList.toggle('popup__opened');
 }
 
-openFormButton.addEventListener('click', (evt)=> {
-  console.log("probando")
-  const popupProfile = document.querySelector(".popup_profile")
-    const popup = new PopUp(popupProfile)
-    popup.open();
-    popup.setEventListener();
-});
-// closeButton.addEventListener('click', toggleForm);
+// openFormButton.addEventListener('click', (evt)=> {
+//   console.log("probando")
+//   const popupProfile = document.querySelector(".popup_profile")
+//     const popup = new PopUp(popupProfile)
+//     popup.open();
+//     popup.setEventListener();
+// });
+// // closeButton.addEventListener('click', toggleForm);
 
-newCardButton.addEventListener('.click', (evt)=> {
-  const popupNewCard = document.querySelector(".popup_new-card")
-    const popupAddCard = new PopupWithForm(popupNewCard)
-    popupAddCard.open();
-    popupAddCard.setEventListener();
-});
+// newCardButton.addEventListener('.click', (evt)=> {
+//   const popupNewCard = document.querySelector(".popup_new-card")
+//     const popupAddCard = new PopupWithForm(popupNewCard)
+//     popupAddCard.open();
+//     popupAddCard.setEventListener();
+// });
 
 //const formElement = document.querySelector('.popup__container')
 

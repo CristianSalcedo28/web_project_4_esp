@@ -1,8 +1,7 @@
 import { initialCards, templateCard, cardsContainer } from "../pages/constants.js";
-import  Api  from "./Api.js"
 
 export default class Card {
-  constructor(data, imageModal, handleDeleteCard) {
+  constructor(data, imageModal, handleDeleteCard, handleBtnLike) {
     this._title = data.name;
     this._link = data.link;
     this._likes = data.likes.length;
@@ -10,7 +9,6 @@ export default class Card {
     this.imageModal = imageModal;
     this.handleDeleteCard = handleDeleteCard;
     this._handleBtnLike = this._handleBtnLike.bind(this);
-   // this._api = new Api();
   }
 
   // para crear las tarjetas iniciales con js
@@ -19,21 +17,20 @@ export default class Card {
     return cardTemplate;
   }
 
-  async _handleBtnLike(cardId) {
+  _handleBtnLike(cardId) {
   //  this.cardBtnLike.classList.toggle("button-like-active");
-
   if (!this.cardBtnLike.classList.contains("button-like-active")) {
     this.cardBtnLike.classList.add("button-like-active");
-      await this._api.addLike(cardId);
+ //   await  this._api.addLike(cardId);
   } else {
     this.cardBtnLike.classList.remove("button-like-active");
-      await this._api.removeLike(cardId);
+ //   await  this._api.removeLike(cardId);
   }
    }
 
-  _handleBtnDelete() {
-    this.cardElement.remove();
-  }
+  // _handleBtnDelete() {
+  //   this.cardElement.remove();
+  // }
 
   _setEventListeners() {
     this.cardBtnDelete.addEventListener("click", () => {
@@ -43,6 +40,7 @@ export default class Card {
     this.cardBtnLike.addEventListener("click", () => {
       this._handleBtnLike(this.cardId);
     });
+
     this.cardElement.querySelector(".cards__image").addEventListener('click',this.imageModal
     );
   }
