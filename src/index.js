@@ -65,15 +65,12 @@ function createCard(data){
   const cardCreated = new Card(data, (evt) => {
     const modalCard = new PopupWithImage(popupExpandedImage)
     modalCard.open(evt)
-  },
-  // handleBtnLike, (buttonLiked) => {
-  //   return buttonLiked ? api.addLike(data._id) : api.removeLike(data._id);
-  // },
-  (id)=>{
+  },  (id)=>{
     popupDeleteCard.open();
     popupDeleteCard.setSubmitAction(() => {
       api.removeCard(id).then(() =>{
         popupDeleteCard.close();
+        cardCreated.remove();
       })
     });
   }
@@ -120,9 +117,10 @@ const popupSetAvatar = new PopupWithForm(popupAvatar, (value)=> {
     profileInfo.setUserAvatar(json.avatar)
   })
 })
-
+console.log(deleteCardSubmit)
 const popupDeleteCard = new PopupDeleteImage({popupSelector: popupRemove, submitButton: deleteCardSubmit})
   popupDeleteCard.setEventListeners();
+  console.log(popupDeleteCard)
 
 
 openFormButton.addEventListener('click', (evt)=> {
