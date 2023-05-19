@@ -1,7 +1,7 @@
 import "./styles/index.css"
 import  Card  from "./components/card.js"
 import FormValidator from "./components/formValidator.js"
-import { openFormButton, popup, submitButton, popupProfile, newCardButton, cardsContainer, popupNewCard, popupImage, templateCard, form, closeButtonAddCard, closeButtonNewImage, avatar, popupAvatar } from "./pages/constants.js"
+import { openFormButton, popup, submitButton, popupProfile, newCardButton, cardsContainer, popupNewCard, popupImage, templateCard, form, closeButtonAddCard, closeButtonNewImage, avatar, popupAvatar } from "./constants/constants.js"
 import Popup from "./components/popup.js";
 import PopupWithForm from "./components/popupWithForm.js";
 import PopupWithImage from "./components/PopupWithImage.js";
@@ -9,6 +9,8 @@ import UserInfo from "./components/UserInfo.js"
 import Api from "./components/Api.js"
 import PopupDeleteImage from "./components/popupDeleteImage"
 
+const inputName = document.querySelector('#name')
+const inputProfession = document.querySelector('#profession')
 const popupAddNewCard = document.querySelector(".popup_new-card")
 const profileName = document.querySelector('.profile__name');
 const profileProfession = document.querySelector('.profile__profession');
@@ -105,10 +107,10 @@ const popupSetAvatar = new PopupWithForm(popupAvatar, (value)=> {
 
 const popupDeleteCard = new PopupDeleteImage({popupSelector: popupRemove, submitButton: deleteCardSubmit})
   popupDeleteCard.setEventListeners();
-  console.log(popupDeleteCard)
 
-
-openFormButton.addEventListener('click', (evt)=> {
+openFormButton.addEventListener('click', ()=> {
+  inputName.value = profileName.textContent;
+   inputProfession.value = profileProfession.textContent;
     popupEditProfile.open();
 });
 
