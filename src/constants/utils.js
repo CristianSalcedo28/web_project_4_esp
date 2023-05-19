@@ -24,16 +24,16 @@
 
 //const formElement = document.querySelector('.popup__container')
 
-function changeTitle(evt){
-  this.inputName = document.querySelector('#name');
-  this.inputProfession = document.querySelector('#profession');
+// function changeTitle(evt){
+//   this.inputName = document.querySelector('#name');
+//   this.inputProfession = document.querySelector('#profession');
 
-  this.profileName = document.querySelector('.profile__name');
-  this.profileProfession = document.querySelector('.profile__profession');
+//   this.profileName = document.querySelector('.profile__name');
+//   this.profileProfession = document.querySelector('.profile__profession');
 
-  this.profileName.textContent = this.inputName.value;
-  this.profileProfession.textContent = this.inputProfession.value;
-}
+//   this.profileName.textContent = this.inputName.value;
+//   this.profileProfession.textContent = this.inputProfession.value;
+// }
 
 // const submitButton = document.querySelector('.button-submit');
 // submitButton.addEventListener("click", toggleForm);

@@ -1,13 +1,13 @@
-import "./styles/index.css"
-import  Card  from "./components/card.js"
-import FormValidator from "./components/formValidator.js"
-import { openFormButton, popup, submitButton, popupProfile, newCardButton, cardsContainer, popupNewCard, popupImage, templateCard, form, closeButtonAddCard, closeButtonNewImage, avatar, popupAvatar } from "./constants/constants.js"
-import Popup from "./components/popup.js";
-import PopupWithForm from "./components/popupWithForm.js";
-import PopupWithImage from "./components/PopupWithImage.js";
-import UserInfo from "./components/UserInfo.js"
-import Api from "./components/Api.js"
-import PopupDeleteImage from "./components/popupDeleteImage"
+import "./index.css"
+import  Card  from "../components/card.js"
+import FormValidator from "../components/formValidator.js"
+import { openFormButton, popup, submitButton, popupProfile, newCardButton, cardsContainer, popupNewCard, popupImage, templateCard, form, closeButtonAddCard, closeButtonNewImage, avatar, popupAvatar } from "../components/constants.js"
+import Popup from "../components/popup.js";
+import PopupWithForm from "../components/popupWithForm.js";
+import PopupWithImage from "../components/PopupWithImage.js";
+import UserInfo from "../components/UserInfo.js"
+import Api from "../components/Api.js"
+import PopupDeleteImage from "../components/popupDeleteImage"
 
 const inputName = document.querySelector('#name')
 const inputProfession = document.querySelector('#profession')

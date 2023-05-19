@@ -1,4 +1,4 @@
-import { initialCards, templateCard, cardsContainer } from "../constants/constants.js";
+import { initialCards, templateCard, cardsContainer } from "./constants.js";
 import Api from "./Api.js";
 
 export default class Card {
