@@ -100,7 +100,7 @@ const popupEditProfile = new PopupWithForm(popupProfile, (value)=> {
 })
 
 const popupSetAvatar = new PopupWithForm(popupAvatar, (value)=> {
-  api.setUserAvatar({avatar: value.image}).then((json) => {
+  api.setUserAvatar({avatar: value.imageAvatar}).then((json) => {
     profileInfo.setUserAvatar(json.avatar)
   })
 })
